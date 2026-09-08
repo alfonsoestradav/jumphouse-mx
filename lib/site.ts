@@ -204,6 +204,13 @@ export const attractions = [
     alt: "Muro de escalar junto al pozo de cubos",
   },
   {
+    slug: "playground",
+    title: "Playground",
+    copy: "Torre de juegos infantiles con toboganes de tubo y redes. Está dentro del parque, junto a la zona de mesas.",
+    image: "/images/maps-03.jpg",
+    alt: "Playground infantil con toboganes en Jump House Santa Catarina",
+  },
+  {
     slug: "fiestas",
     title: "Fiestas",
     copy: "El cumpleañero entra gratis. Trampolines, merienda, limonada y palomitas: la fecha se arma por WhatsApp.",

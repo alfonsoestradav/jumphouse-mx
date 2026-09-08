@@ -8,7 +8,7 @@ import { attractions } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Atracciones",
   description:
-    "Zona de salto, pozo de cubos, gladiadores, básquet y fiestas en Jump House, Plaza Santa Catarina.",
+    "Zona de salto, pozo de cubos, gladiadores, básquet, playground y fiestas en Jump House, Plaza Santa Catarina.",
 };
 
 export default function AtraccionesPage() {
@@ -16,7 +16,7 @@ export default function AtraccionesPage() {
     <>
       <PageHero
         title="Atracciones"
-        lede="Trampolines, cubos, gladiadores y básquet. El parque entero está hecho para brincar sin reloj."
+        lede="Trampolines, cubos, gladiadores, básquet y playground. El parque entero está hecho para brincar sin reloj."
         image="/images/park.jpg"
         alt="Canchas de Jump House en Plaza Santa Catarina"
       />
@@ -35,7 +35,11 @@ export default function AtraccionesPage() {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className="object-cover object-top"
+                className={
+                  item.image.includes("/maps-")
+                    ? "object-cover object-center"
+                    : "object-cover object-top"
+                }
                 sizes="(min-width: 1024px) 42vw, 100vw"
               />
             </div>
