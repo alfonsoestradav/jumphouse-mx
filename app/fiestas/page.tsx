@@ -34,9 +34,9 @@ export default function FiestasPage() {
               {site.hoursLabel}.
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">
-              Usa el calculador: adultos, niños y servicios adicionales
-              (quequitos, pizza extra, varitas neón y evento privado). El
-              WhatsApp sale con el estimado ({site.address.place}).
+              Usa el calculador: invitados y servicios adicionales (quequitos,
+              pizza extra, varitas neón y evento privado). Adultos y niños
+              pagan lo mismo. El WhatsApp sale con el estimado ({site.address.place}).
             </p>
             <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-[2rem]">
               <Image

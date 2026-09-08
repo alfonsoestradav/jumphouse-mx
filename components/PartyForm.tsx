@@ -10,7 +10,7 @@ import {
   waLink,
 } from "@/lib/site";
 
-const GUEST_MIN = 0;
+const GUEST_MIN = 1;
 const GUEST_MAX = 100;
 
 function money(n: number) {
@@ -30,10 +30,12 @@ function GuestSlider({
   label,
   value,
   onChange,
+  showTitle = true,
 }: {
   label: string;
   value: number;
   onChange: (n: number) => void;
+  showTitle?: boolean;
 }) {
   const [text, setText] = useState(String(value));
   const [focused, setFocused] = useState(false);
@@ -41,8 +43,8 @@ function GuestSlider({
 
   return (
     <div>
-      <p className="text-sm font-semibold">{label}</p>
-      <div className="mt-2 flex items-center gap-3">
+      {showTitle ? <p className="text-sm font-semibold">{label}</p> : null}
+      <div className={`flex items-center gap-3 ${showTitle ? "mt-2" : ""}`}>
         <input
           type="range"
           min={GUEST_MIN}
@@ -92,13 +94,11 @@ function GuestSlider({
 export function PartyForm() {
   const [name, setName] = useState("");
   const [date, setDate] = useState<Date | null>(null);
-  const [adults, setAdults] = useState(10);
-  const [kids, setKids] = useState(5);
+  const [guests, setGuests] = useState(15);
   const [qty, setQty] = useState<Record<string, number>>({});
   const [privado, setPrivado] = useState(false);
   const [guestError, setGuestError] = useState("");
 
-  const guests = adults + kids;
   const jumpTotal = guests * partyRate;
   const serviceTotal = partyServices.reduce((sum, item) => {
     if (item.kind !== "qty") return sum;
@@ -121,8 +121,6 @@ export function PartyForm() {
       "Hola Jump House, quiero cotizar una fiesta.",
       `Nombre: ${name.trim() || "—"}`,
       `Fecha: ${date ? formatMx(date) : "por definir"}`,
-      `Adultos: ${adults}`,
-      `Niños: ${kids}`,
       `Invitados: ${guests}`,
       `Salto: ${guests} × $${partyRate} = ${money(jumpTotal)}`,
     ];
@@ -139,8 +137,6 @@ export function PartyForm() {
   }, [
     name,
     date,
-    adults,
-    kids,
     guests,
     jumpTotal,
     serviceLines,
@@ -188,22 +184,15 @@ export function PartyForm() {
       <div className="mt-6">
         <p className="text-sm font-semibold">Número de invitados</p>
         <p className="mt-1 text-sm text-muted">
-          {guests} en total · 0 a 100 por grupo
+          Adultos y niños pagan el mismo precio: ${partyRate} por persona.
         </p>
-        <div className="mt-4 space-y-4">
+        <div className="mt-4">
           <GuestSlider
-            label="Adultos"
-            value={adults}
+            label="Número de invitados"
+            value={guests}
+            showTitle={false}
             onChange={(n) => {
-              setAdults(n);
-              if (guestError) setGuestError("");
-            }}
-          />
-          <GuestSlider
-            label="Niños"
-            value={kids}
-            onChange={(n) => {
-              setKids(n);
+              setGuests(n);
               if (guestError) setGuestError("");
             }}
           />
@@ -265,7 +254,7 @@ export function PartyForm() {
         <p className="text-sm text-muted">Estimado del evento</p>
         <p className="font-display mt-1 text-5xl text-lime">{money(total)}</p>
         <p className="mt-2 text-sm text-muted">
-          Salto {money(jumpTotal)} ({adults} adultos · {kids} niños)
+          Salto {money(jumpTotal)} ({guests} {guests === 1 ? "persona" : "personas"})
           {serviceTotal ? ` · extras ${money(serviceTotal)}` : ""}
         </p>
         <p className="mt-2 text-sm text-muted">
