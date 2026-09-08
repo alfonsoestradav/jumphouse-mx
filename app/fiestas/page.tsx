@@ -7,7 +7,7 @@ import { partyTerms, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Fiestas",
   description:
-    "Fiestas de cumpleaños en Jump House, Plaza Santa Catarina. Paquetes desde $245 por persona, cumpleañero gratis y tiempo ilimitado. Cotiza por WhatsApp.",
+    "Fiestas de cumpleaños en Jump House, Plaza Santa Catarina. Paquetes desde $245 por persona, 4 horas de servicio y cumpleañero gratis. Cotiza por WhatsApp.",
 };
 
 export default function FiestasPage() {
@@ -15,7 +15,7 @@ export default function FiestasPage() {
     <>
       <PageHero
         title="Fiestas"
-        lede="El cumpleañero entra gratis. Armamos la fecha por WhatsApp en Plaza Santa Catarina, Manuel Ordóñez 322."
+        lede="4 horas de servicio. El cumpleañero entra gratis. Armamos la fecha por WhatsApp en Plaza Santa Catarina, Manuel Ordóñez 322."
         image="/images/party.jpg"
         alt="Fiesta en las canchas de Jump House"
       />
@@ -28,9 +28,9 @@ export default function FiestasPage() {
               <span className="mt-2 block text-ink">por persona</span>
             </p>
             <p className="mt-8 max-w-xl text-lg text-muted">
-              Paquetes de fiesta desde $245 por persona. El cumpleañero entra
-              gratis y solo pagan quienes suben a brincar. El tiempo de salto es
-              ilimitado dentro del horario del parque: {site.hoursNote.toLowerCase()},{" "}
+              Paquetes de fiesta desde $245 por persona. El evento es de 4 horas
+              de servicio. El cumpleañero entra gratis y solo pagan quienes
+              suben a brincar. Horario del parque: {site.hoursNote.toLowerCase()},{" "}
               {site.hoursLabel}.
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">
@@ -58,7 +58,10 @@ export default function FiestasPage() {
           <h2 className="font-display text-5xl text-lime sm:text-7xl">
             Condiciones del evento
           </h2>
-          <p className="mt-5 max-w-3xl text-lg text-muted">
+          <p className="mt-5 max-w-3xl text-lg font-semibold text-ink">
+            {partyTerms.duration}
+          </p>
+          <p className="mt-3 max-w-3xl text-lg text-muted">
             {partyTerms.deposit}
           </p>
           <p className="mt-3 max-w-3xl font-semibold text-ink">

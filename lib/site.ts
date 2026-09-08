@@ -152,6 +152,7 @@ export const menuHighlights = [
 ] as const;
 
 export const partyRate = 245;
+export const partyHours = 4;
 export const partyDepositRate = 0.3;
 export const partyExtraGuestFee = 20;
 
@@ -163,6 +164,7 @@ export const partyServices = [
 ] as const;
 
 export const partyTerms = {
+  duration: "El evento es de 4 horas de servicio.",
   extrasNote:
     "Si el día del evento hay más de 5 invitados extra, el precio aumenta $20.",
   deposit:
@@ -250,7 +252,7 @@ export const attractions = [
   {
     slug: "fiestas",
     title: "Fiestas",
-    copy: "El cumpleañero entra gratis. Trampolines, merienda, limonada y palomitas: la fecha se arma por WhatsApp.",
+    copy: "El cumpleañero entra gratis. El evento es de 4 horas de servicio. La fecha se arma por WhatsApp.",
     image: "/images/maps-07.jpg",
     alt: "Área de fiestas en Jump House, con mesas y tobogán",
   },
@@ -295,7 +297,7 @@ export const faqs = [
   },
   {
     q: "¿Hacen fiestas de cumpleaños?",
-    a: "Sí. Los paquetes empiezan desde $245 por persona y el cumpleañero entra gratis. Escríbenos para armar tu fecha.",
+    a: "Sí. Los paquetes empiezan desde $245 por persona, el evento es de 4 horas de servicio y el cumpleañero entra gratis. Escríbenos para armar tu fecha.",
   },
 ] as const;
 

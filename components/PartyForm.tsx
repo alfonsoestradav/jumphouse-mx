@@ -4,6 +4,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { DateCalendar, formatMx } from "@/components/DateCalendar";
 import {
   partyDepositRate,
+  partyHours,
   partyRate,
   partyServices,
   partyTerms,
@@ -122,6 +123,7 @@ export function PartyForm() {
       `Nombre: ${name.trim() || "—"}`,
       `Fecha: ${date ? formatMx(date) : "por definir"}`,
       `Invitados: ${guests}`,
+      `Servicio: ${partyHours} horas`,
       `Salto: ${guests} × $${partyRate} = ${money(jumpTotal)}`,
     ];
     if (serviceLines.length) {
@@ -161,8 +163,8 @@ export function PartyForm() {
     >
       <p className="font-display text-4xl">Calcula tu evento</p>
       <p className="mt-2 text-sm text-muted">
-        Salto desde ${partyRate} por persona. Suma extras; el estimado y el
-        anticipo del 30% van en el WhatsApp.
+        ${partyHours} horas de servicio. Salto desde ${partyRate} por persona.
+        Suma extras; el estimado y el anticipo del 30% van en el WhatsApp.
       </p>
 
       <label className="mt-6 block text-sm font-semibold">
