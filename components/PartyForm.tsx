@@ -3,12 +3,83 @@
 import { FormEvent, useMemo, useState } from "react";
 import { partyRate, partyServices, waLink } from "@/lib/site";
 
+const GUEST_MIN = 0;
+const GUEST_MAX = 100;
+
 function money(n: number) {
   return n.toLocaleString("es-MX", {
     style: "currency",
     currency: "MXN",
     maximumFractionDigits: 0,
   });
+}
+
+function clampGuests(n: number) {
+  if (!Number.isFinite(n)) return GUEST_MIN;
+  return Math.min(GUEST_MAX, Math.max(GUEST_MIN, Math.round(n)));
+}
+
+function GuestSlider({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: number;
+  onChange: (n: number) => void;
+}) {
+  const [text, setText] = useState(String(value));
+  const [focused, setFocused] = useState(false);
+  const fill = `${(value / GUEST_MAX) * 100}%`;
+
+  return (
+    <div>
+      <p className="text-sm font-semibold">{label}</p>
+      <div className="mt-2 flex items-center gap-3">
+        <input
+          type="range"
+          min={GUEST_MIN}
+          max={GUEST_MAX}
+          value={value}
+          onChange={(e) => {
+            const next = clampGuests(Number(e.target.value));
+            onChange(next);
+            if (!focused) setText(String(next));
+          }}
+          className="guest-slider min-w-0 flex-1"
+          style={{ ["--fill" as string]: fill }}
+          aria-label={label}
+        />
+        <input
+          type="text"
+          inputMode="numeric"
+          value={focused ? text : String(value)}
+          onFocus={() => {
+            setFocused(true);
+            setText(String(value));
+          }}
+          onChange={(e) => {
+            const raw = e.target.value.replace(/\D/g, "").slice(0, 3);
+            if (raw === "") {
+              setText("");
+              return;
+            }
+            const next = clampGuests(Number(raw));
+            setText(Number(raw) > GUEST_MAX ? String(GUEST_MAX) : raw);
+            onChange(next);
+          }}
+          onBlur={() => {
+            const next = clampGuests(Number(text) || 0);
+            setText(String(next));
+            onChange(next);
+            setFocused(false);
+          }}
+          className="w-14 shrink-0 rounded-xl border border-white/10 bg-void px-2 py-2 text-center text-sm font-semibold tabular-nums text-ink"
+          aria-label={`${label}, valor numérico`}
+        />
+      </div>
+    </div>
+  );
 }
 
 function maskDate(raw: string) {
@@ -35,10 +106,13 @@ function isValidDate(value: string) {
 export function PartyForm() {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-  const [guests, setGuests] = useState(15);
+  const [adults, setAdults] = useState(10);
+  const [kids, setKids] = useState(5);
   const [services, setServices] = useState<Record<string, boolean>>({});
   const [dateError, setDateError] = useState("");
+  const [guestError, setGuestError] = useState("");
 
+  const guests = adults + kids;
   const jumpTotal = guests * partyRate;
   const serviceTotal = partyServices.reduce(
     (sum, item) => sum + (services[item.id] ? item.price : 0),
@@ -55,6 +129,8 @@ export function PartyForm() {
       "Hola Jump House, quiero cotizar una fiesta.",
       `Nombre: ${name.trim() || "—"}`,
       `Fecha: ${date || "por definir"}`,
+      `Adultos: ${adults}`,
+      `Niños: ${kids}`,
       `Invitados: ${guests}`,
       `Salto: ${guests} × $${partyRate} = ${money(jumpTotal)}`,
     ];
@@ -67,7 +143,7 @@ export function PartyForm() {
     lines.push(`Estimado total: ${money(total)}`);
     lines.push("Confirmo disponibilidad y el paquete del día.");
     return lines.join("\n");
-  }, [name, date, guests, jumpTotal, serviceLines, total]);
+  }, [name, date, adults, kids, guests, jumpTotal, serviceLines, total]);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -75,7 +151,12 @@ export function PartyForm() {
       setDateError("Usa el formato dd/mm/aaaa, por ejemplo 08/09/2026.");
       return;
     }
+    if (guests < 1) {
+      setGuestError("Indica al menos 1 invitado.");
+      return;
+    }
     setDateError("");
+    setGuestError("");
     window.open(waLink(message), "_blank", "noopener,noreferrer");
   }
 
@@ -121,16 +202,33 @@ export function PartyForm() {
       ) : (
         <p className="mt-2 text-sm text-muted">Formato: dd/mm/aaaa</p>
       )}
-      <label className="mt-4 block text-sm font-semibold">
-        Número de invitados
-        <input
-          type="number"
-          min={1}
-          value={guests}
-          onChange={(e) => setGuests(Math.max(1, Number(e.target.value) || 1))}
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-void px-4 py-3 text-ink"
-        />
-      </label>
+      <div className="mt-6">
+        <p className="text-sm font-semibold">Número de invitados</p>
+        <p className="mt-1 text-sm text-muted">
+          {guests} en total · 0 a 100 por grupo
+        </p>
+        <div className="mt-4 space-y-4">
+          <GuestSlider
+            label="Adultos"
+            value={adults}
+            onChange={(n) => {
+              setAdults(n);
+              if (guestError) setGuestError("");
+            }}
+          />
+          <GuestSlider
+            label="Niños"
+            value={kids}
+            onChange={(n) => {
+              setKids(n);
+              if (guestError) setGuestError("");
+            }}
+          />
+        </div>
+        {guestError ? (
+          <p className="mt-2 text-sm text-magenta">{guestError}</p>
+        ) : null}
+      </div>
 
       <p className="mt-8 font-display text-3xl">Servicios adicionales</p>
       <ul className="mt-3 space-y-2">
@@ -161,7 +259,7 @@ export function PartyForm() {
         <p className="text-sm text-muted">Estimado del evento</p>
         <p className="font-display mt-1 text-5xl text-lime">{money(total)}</p>
         <p className="mt-2 text-sm text-muted">
-          Salto {money(jumpTotal)}
+          Salto {money(jumpTotal)} ({adults} adultos · {kids} niños)
           {serviceTotal ? ` · servicios ${money(serviceTotal)}` : ""}
         </p>
       </div>

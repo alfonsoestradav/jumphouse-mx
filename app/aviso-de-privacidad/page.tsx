@@ -26,7 +26,7 @@ export default function AvisoDePrivacidadPage() {
           <h2 className="font-display text-4xl text-lime">Datos que recabamos</h2>
           <p className="mt-3">
             En este sitio no hay cuentas ni pagos en línea. El calculador de
-            fiestas recaba nombre, fecha tentativa, número de invitados y
+            fiestas recaba nombre, fecha tentativa, número de adultos y niños, y
             servicios adicionales. Al enviarlo, esos datos y el estimado se
             abren en un mensaje de WhatsApp. No recabamos RFC, identificaciones
             ni datos financieros.
