@@ -118,7 +118,7 @@ export default function ContactoPage() {
           </dl>
 
           <a
-            href={waLink("Hola Jump House, quiero información para visitar el parque en Plaza Santa Catarina.")}
+            href={waLink("Hola Jump House, tengo una pregunta.")}
             className="cta-glow mt-10 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3.5 font-extrabold text-void"
           >
             Escribir por WhatsApp

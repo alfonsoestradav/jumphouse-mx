@@ -22,17 +22,18 @@ export default function HomePage() {
             <span className="block text-lime">sin límite</span>
           </h1>
           <p className="mt-5 max-w-lg text-lg text-ink/90">
-            Parque de trampolines para todas las edades. Tiempo ilimitado, el
-            cumpleañero entra gratis y solo pagan quienes brincan.
+            Parque de trampolines para todas las edades. Llega en horario
+            abierto: no se reserva para saltar. Tiempo ilimitado y solo pagan
+            quienes brincan. Las fiestas sí se apartan con anticipación.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href={waLink("Hola Jump House, quiero ir a saltar hoy.")}
+            <Link
+              href="/contacto"
               className="cta-glow inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3.5 text-base font-extrabold text-void"
             >
-              Reservar por WhatsApp
+              Cómo llegar
               <IconArrow className="h-5 w-5" />
-            </a>
+            </Link>
             <Link
               href="/precios"
               className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3.5 font-bold text-white hover:border-lime hover:text-lime"

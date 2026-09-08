@@ -49,7 +49,7 @@ export const nav = [
 export function waLink(text?: string) {
   const msg = encodeURIComponent(
     text ??
-      "Hola Jump House, quiero información para visitar el parque en Plaza Santa Catarina.",
+      "Hola Jump House, tengo una pregunta.",
   );
   return `https://wa.me/${site.whatsapp}?text=${msg}`;
 }
@@ -236,7 +236,7 @@ export const rules = [
 export const faqs = [
   {
     q: "¿Tengo que reservar para entrar?",
-    a: "Puedes llegar directo. Para fiestas y grupos grandes te recomendamos apartar por WhatsApp, sobre todo en fin de semana.",
+    a: "No. Cualquiera puede llegar a saltar en horario abierto. Solo las fiestas se reservan con anticipación.",
   },
   {
     q: "¿El precio es por hora?",

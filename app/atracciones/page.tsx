@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconArrow } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
-import { attractions, waLink } from "@/lib/site";
+import { attractions } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Atracciones",
@@ -60,21 +60,21 @@ export default function AtraccionesPage() {
           </h2>
           <p className="mt-5 max-w-lg text-lg text-void/80">
             Tiempo ilimitado, todas las edades y solo pagan quienes brincan.
-            Escríbenos y armamos tu visita en Plaza Santa Catarina.
+            Llega en horario abierto; no se reserva para saltar.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href={waLink("Hola Jump House, quiero ir a saltar en el parque.")}
-              className="cta-glow inline-flex items-center gap-2 rounded-full bg-void px-6 py-3.5 text-base font-extrabold text-lime"
-            >
-              Reservar por WhatsApp
-              <IconArrow className="h-5 w-5" />
-            </a>
             <Link
               href="/precios"
-              className="inline-flex items-center gap-2 rounded-full border border-void/20 px-6 py-3.5 font-bold text-void hover:bg-void hover:text-lime"
+              className="cta-glow inline-flex items-center gap-2 rounded-full bg-void px-6 py-3.5 text-base font-extrabold text-lime"
             >
               Ver precios
+              <IconArrow className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/fiestas"
+              className="inline-flex items-center gap-2 rounded-full border border-void/20 px-6 py-3.5 font-bold text-void hover:bg-void hover:text-lime"
+            >
+              Reservar fiesta
             </Link>
           </div>
         </div>

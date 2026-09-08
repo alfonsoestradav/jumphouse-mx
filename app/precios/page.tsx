@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { extras, prices, site, waLink } from "@/lib/site";
+import { extras, prices, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Precios",
@@ -87,14 +87,12 @@ export default function PreciosPage() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <a
-            href={waLink(
-              "Hola Jump House, quiero confirmar el precio de entrada para hoy.",
-            )}
+          <Link
+            href="/contacto"
             className="inline-flex rounded-full bg-lime px-6 py-3.5 font-extrabold text-void"
           >
-            Confirmar por WhatsApp
-          </a>
+            Cómo llegar
+          </Link>
           <Link
             href="/reglas"
             className="inline-flex rounded-full border border-white/25 px-6 py-3.5 font-bold text-white hover:border-lime hover:text-lime"

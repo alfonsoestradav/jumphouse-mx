@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { IconArrow } from "@/components/Icons";
-import { faqs, rules, waLink } from "@/lib/site";
+import Link from "next/link";
+import { faqs, rules } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Reglas",
@@ -69,16 +70,16 @@ export default function ReglasPage() {
       <section className="mx-auto flex max-w-7xl flex-col items-start gap-5 px-5 py-16 lg:px-8">
         <h2 className="font-display text-5xl sm:text-7xl">Listo para saltar</h2>
         <p className="max-w-lg text-muted">
-          Si vienes con grupo o fiesta, aparta por WhatsApp. Si vienes a brincar,
-          puedes llegar directo.
+          Para saltar no se reserva: llega en horario abierto. Solo las fiestas
+          se apartan con anticipación.
         </p>
-        <a
-          href={waLink("Hola Jump House, quiero información para visitar el parque.")}
+        <Link
+          href="/fiestas"
           className="cta-glow inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3.5 font-extrabold text-void"
         >
-          Escribir por WhatsApp
+          Reservar fiesta
           <IconArrow className="h-5 w-5" />
-        </a>
+        </Link>
       </section>
     </>
   );

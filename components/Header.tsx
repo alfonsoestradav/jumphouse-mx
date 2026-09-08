@@ -50,12 +50,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href={waLink("Hola Jump House, quiero reservar una visita o fiesta.")}
+          <Link
+            href="/fiestas"
             className="hidden rounded-full bg-lime px-4 py-2 text-sm font-extrabold text-void transition hover:bg-white sm:inline-flex"
           >
-            Reservar
-          </a>
+            Reservar fiesta
+          </Link>
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 text-ink lg:hidden"

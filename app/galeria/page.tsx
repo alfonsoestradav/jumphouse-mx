@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconArrow } from "@/components/Icons";
 import { PageHero } from "@/components/PageHero";
-import { gallery, waLink } from "@/lib/site";
+import { gallery } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Galería",
@@ -63,16 +63,16 @@ export default function GaleriaPage() {
           </h2>
           <p className="mt-5 max-w-lg text-lg text-muted">
             Plaza Santa Catarina, todos los días de 1:00 p.m. a 9:00 p.m.
-            Mándanos WhatsApp y te esperamos en la cancha.
+            No se reserva para saltar: llega en horario abierto.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href={waLink("Hola Jump House, vi la galería y quiero visitar el parque.")}
+            <Link
+              href="/contacto"
               className="cta-glow inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3.5 text-base font-extrabold text-void"
             >
-              Reservar por WhatsApp
+              Cómo llegar
               <IconArrow className="h-5 w-5" />
-            </a>
+            </Link>
             <Link
               href="/atracciones"
               className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3.5 font-bold text-white hover:border-lime hover:text-lime"
