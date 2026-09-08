@@ -199,9 +199,7 @@ export function PartyForm() {
       </label>
       {dateError ? (
         <p className="mt-2 text-sm text-magenta">{dateError}</p>
-      ) : (
-        <p className="mt-2 text-sm text-muted">Formato: dd/mm/aaaa</p>
-      )}
+      ) : null}
       <div className="mt-6">
         <p className="text-sm font-semibold">Número de invitados</p>
         <p className="mt-1 text-sm text-muted">
