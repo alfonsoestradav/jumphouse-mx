@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { PartyForm } from "@/components/PartyForm";
-import { partyTerms, site } from "@/lib/site";
+import { partyIncludes, partyTerms, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Fiestas",
   description:
-    "Fiestas de cumpleaños en Jump House, Plaza Santa Catarina. Paquetes desde $245 por persona, 4 horas de servicio y cumpleañero gratis. Cotiza por WhatsApp.",
+    "Fiestas de cumpleaños en Jump House, Plaza Santa Catarina. Paquete $245 por persona, sin límite de tiempo de 1:30 p.m. a 8:00 p.m. Incluye merienda, refill y calcetas para los niños.",
 };
 
 export default function FiestasPage() {
@@ -15,7 +15,7 @@ export default function FiestasPage() {
     <>
       <PageHero
         title="Fiestas"
-        lede="4 horas de servicio. El cumpleañero entra gratis. Armamos la fecha por WhatsApp en Plaza Santa Catarina, Manuel Ordóñez 322."
+        lede="Sin límite de tiempo, de 1:30 p.m. a 8:00 p.m. $245 por persona, niños y adultos igual. Armamos la fecha por WhatsApp."
         image="/images/party.jpg"
         alt="Fiesta en las canchas de Jump House"
       />
@@ -28,15 +28,23 @@ export default function FiestasPage() {
               <span className="mt-2 block text-ink">por persona</span>
             </p>
             <p className="mt-8 max-w-xl text-lg text-muted">
-              Paquetes de fiesta desde $245 por persona. El evento es de 4 horas
-              de servicio. El cumpleañero entra gratis y solo pagan quienes
-              suben a brincar. Horario del parque: {site.hoursNote.toLowerCase()},{" "}
+              El paquete es de $245 por persona: niños y adultos pagan lo mismo.
+              No se cobra por hora; el evento puede durar todo el día, de 1:30
+              p.m. a 8:00 p.m. El parque abre {site.hoursNote.toLowerCase()},{" "}
               {site.hoursLabel}.
             </p>
+            <ul className="mt-6 max-w-xl space-y-2 text-ink">
+              {partyIncludes.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lime" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
             <p className="mt-5 max-w-xl text-lg text-muted">
-              Usa el calculador: invitados y servicios adicionales (quequitos,
-              pizza extra, varitas neón y evento privado). Adultos y niños
-              pagan lo mismo. El WhatsApp sale con el estimado ({site.address.place}).
+              Usa el calculador para invitados y extras (quequitos, pizza extra,
+              varitas neón y evento privado). El WhatsApp sale con el estimado (
+              {site.address.place}).
             </p>
             <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-[2rem]">
               <Image

@@ -232,8 +232,9 @@ export default function HomePage() {
               Nada supera una fiesta aquí
             </h2>
             <p className="mt-5 max-w-md text-lg text-ink/90">
-              Paquetes desde $245 por persona, 4 horas de servicio. El
-              cumpleañero entra gratis. Armamos la fecha por WhatsApp.
+              Paquete de $245 por persona, sin límite de tiempo de 1:30 p.m. a
+              8:00 p.m. Incluye trampolines, merienda y refill. Armamos la fecha
+              por WhatsApp.
             </p>
             <Link
               href="/fiestas"

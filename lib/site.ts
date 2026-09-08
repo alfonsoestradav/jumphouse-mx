@@ -152,9 +152,20 @@ export const menuHighlights = [
 ] as const;
 
 export const partyRate = 245;
-export const partyHours = 4;
+export const partyWindow = "1:30 p.m. a 8:00 p.m.";
 export const partyDepositRate = 0.3;
 export const partyExtraGuestFee = 20;
+
+export const partyIncludes = [
+  "Fiesta sin límite de tiempo (de 1:30 p.m. a 8:00 p.m.)",
+  "Acceso a los trampolines",
+  "Calcetas antiderrapantes para todos los niños",
+  "Merienda completa: pizza y papitas",
+  "Refill ilimitado de limonada, refresco y palomitas",
+  "Dinámicas en el trampolín",
+  "Show de luces neón",
+  "Invitación digital personalizada",
+] as const;
 
 export const partyServices = [
   { id: "quequitos", name: "Quequitos", price: 30, unit: "c/u", kind: "qty" },
@@ -164,7 +175,8 @@ export const partyServices = [
 ] as const;
 
 export const partyTerms = {
-  duration: "El evento es de 4 horas de servicio.",
+  duration:
+    "El evento puede durar todo el día: no se cobra por hora. Puede empezar desde la 1:30 p.m. y terminar hasta las 8:00 p.m.",
   extrasNote:
     "Si el día del evento hay más de 5 invitados extra, el precio aumenta $20.",
   deposit:
@@ -252,7 +264,7 @@ export const attractions = [
   {
     slug: "fiestas",
     title: "Fiestas",
-    copy: "El cumpleañero entra gratis. El evento es de 4 horas de servicio. La fecha se arma por WhatsApp.",
+    copy: "Paquete desde $245 por persona, sin límite de tiempo. Incluye trampolines, merienda y refill. La fecha se arma por WhatsApp.",
     image: "/images/maps-07.jpg",
     alt: "Área de fiestas en Jump House, con mesas y tobogán",
   },
@@ -285,7 +297,7 @@ export const faqs = [
   },
   {
     q: "¿Incluye calcetas?",
-    a: "No. Las calcetas antiderrapantes cuestan $40 y son obligatorias para saltar. No vienen en la entrada general.",
+    a: "En la entrada general no: cuestan $40 y son obligatorias. En el paquete de fiestas sí se incluyen para todos los niños.",
   },
   {
     q: "¿Los cumpleañeros entran gratis?",
@@ -297,7 +309,7 @@ export const faqs = [
   },
   {
     q: "¿Hacen fiestas de cumpleaños?",
-    a: "Sí. Los paquetes empiezan desde $245 por persona, el evento es de 4 horas de servicio y el cumpleañero entra gratis. Escríbenos para armar tu fecha.",
+    a: "Sí. El paquete es de $245 por persona (niños y adultos igual), sin límite de tiempo de 1:30 p.m. a 8:00 p.m. Incluye trampolines, calcetas para los niños, merienda, refill, dinámicas, luces neón e invitación digital. Escríbenos para armar tu fecha.",
   },
 ] as const;
 
