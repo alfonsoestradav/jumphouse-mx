@@ -5,7 +5,7 @@ import { menu, menuNote, waLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Menú",
   description:
-    "Cafetería de Jump House en Plaza Santa Catarina: palomitas, limonada, café, pizza, nuggets, elotes y más. Precios en pesos mexicanos. Confirma en caja.",
+    "Cafetería de Jump House en Plaza Santa Catarina: palomitas, limonada, café, pizza, nuggets, elotes y más. Confirma precios en caja.",
 };
 
 export default function MenuPage() {

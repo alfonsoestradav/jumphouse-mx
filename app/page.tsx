@@ -12,7 +12,7 @@ export default function HomePage() {
           alt="Canchas de Jump House en Plaza Santa Catarina"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-top"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,6,12,0.25)_0%,rgba(7,6,12,0.55)_45%,rgba(7,6,12,0.92)_100%)]" />
@@ -95,12 +95,12 @@ export default function HomePage() {
             </div>
           </dl>
         </div>
-        <div className="relative min-h-[340px] overflow-hidden rounded-[2rem]">
+        <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] lg:aspect-[4/5]">
           <Image
             src="/images/pack.jpg"
             alt="Visitantes de Jump House en las canchas de Plaza Santa Catarina"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             sizes="(min-width: 1024px) 40vw, 100vw"
           />
         </div>
@@ -121,15 +121,15 @@ export default function HomePage() {
               <Link
                 key={item.slug}
                 href="/atracciones"
-                className={`group relative isolate min-h-[320px] overflow-hidden rounded-[1.6rem] ${
-                  i === 0 ? "md:col-span-2 md:min-h-[420px]" : ""
+                className={`group relative isolate aspect-[3/4] overflow-hidden rounded-[1.6rem] ${
+                  i === 0 ? "md:col-span-2 md:aspect-[5/4]" : ""
                 }`}
               >
                 <Image
                   src={item.image}
                   alt={item.alt}
                   fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className="object-cover object-top transition duration-500 group-hover:scale-105"
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -214,7 +214,7 @@ export default function HomePage() {
           src="/images/party.jpg"
           alt="Fiesta en las canchas de Jump House"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-void/80" />

@@ -12,15 +12,15 @@ export const metadata: Metadata = {
 };
 
 const mosaic = [
-  "col-span-2 min-h-[240px] md:col-span-4 md:row-span-2 md:min-h-[480px]",
-  "col-span-1 min-h-[180px] md:col-span-2 md:min-h-[230px]",
-  "col-span-1 min-h-[180px] md:col-span-2 md:min-h-[230px]",
-  "col-span-2 min-h-[200px] md:col-span-3 md:min-h-[280px]",
-  "col-span-2 min-h-[200px] md:col-span-3 md:min-h-[280px]",
-  "col-span-1 min-h-[220px] md:col-span-2 md:row-span-2 md:min-h-[540px]",
-  "col-span-1 min-h-[220px] md:col-span-4 md:min-h-[250px]",
-  "col-span-2 min-h-[200px] md:col-span-4 md:min-h-[250px]",
-  "col-span-2 min-h-[200px] md:col-span-6 md:min-h-[280px]",
+  "col-span-2 aspect-[3/4] md:col-span-3",
+  "col-span-2 aspect-[3/4] md:col-span-3",
+  "col-span-1 aspect-[3/4] md:col-span-2",
+  "col-span-1 aspect-[3/4] md:col-span-2",
+  "col-span-2 aspect-[3/4] md:col-span-2",
+  "col-span-2 aspect-[3/4] md:col-span-3",
+  "col-span-2 aspect-[3/4] md:col-span-3",
+  "col-span-1 aspect-[3/4] md:col-span-3",
+  "col-span-1 aspect-[3/4] md:col-span-3",
 ];
 
 export default function GaleriaPage() {
@@ -44,7 +44,7 @@ export default function GaleriaPage() {
                 src={shot.src}
                 alt={shot.alt}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
             </figure>

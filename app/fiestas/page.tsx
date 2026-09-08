@@ -33,8 +33,8 @@ export default function FiestasPage() {
               {site.hoursLabel}.
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">
-              Usa el calculador: invitados, fecha y si el cumpleañero entra
-              gratis. El mensaje de WhatsApp sale con el estimado ({site.address.place}).
+              Usa el calculador: invitados, comida extra y servicios (pastel,
+              fotos, globos). El WhatsApp sale con el estimado ({site.address.place}).
             </p>
           </div>
 

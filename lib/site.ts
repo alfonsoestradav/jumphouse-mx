@@ -81,59 +81,77 @@ export const prices = [
 ] as const;
 
 export const menuNote =
-  "Servicio de cafetería en el parque. Precios en pesos mexicanos (MXN); confirma en caja el día de tu visita.";
+  "Servicio de cafetería en el parque. Precios de referencia; confirma en caja el día de tu visita.";
 
 export const menu = [
   {
     id: "bebidas",
     title: "Bebidas",
     items: [
-      { name: "Agua", price: "$20 MXN" },
-      { name: "Café", price: "$35 MXN" },
-      { name: "Refresco", price: "$30 MXN" },
-      { name: "Limonada", price: "$35 MXN" },
-      { name: "Limonada refill", price: "$45 MXN" },
-      { name: "Jugo", price: "$30 MXN" },
+      { name: "Agua", price: "$20" },
+      { name: "Café", price: "$35" },
+      { name: "Refresco", price: "$30" },
+      { name: "Limonada", price: "$35" },
+      { name: "Limonada refill", price: "$45" },
+      { name: "Jugo", price: "$30" },
     ],
   },
   {
     id: "snacks",
     title: "Snacks",
     items: [
-      { name: "Palomitas", price: "$40 MXN" },
-      { name: "Elote", price: "$45 MXN" },
-      { name: "Esquite", price: "$45 MXN" },
-      { name: "Nachos con queso", price: "$55 MXN" },
-      { name: "Papas a la francesa", price: "$50 MXN" },
-      { name: "Churros", price: "$40 MXN" },
+      { name: "Palomitas", price: "$40" },
+      { name: "Elote", price: "$45" },
+      { name: "Esquite", price: "$45" },
+      { name: "Nachos con queso", price: "$55" },
+      { name: "Papas a la francesa", price: "$50" },
+      { name: "Churros", price: "$40" },
     ],
   },
   {
     id: "comida",
     title: "Para comer",
     items: [
-      { name: "Pizza personal", price: "$90 MXN" },
-      { name: "Pizza pepperoni", price: "$110 MXN" },
-      { name: "Nuggets con papas", price: "$75 MXN" },
-      { name: "Hamburguesa con papas", price: "$85 MXN" },
-      { name: "Hot dog", price: "$50 MXN" },
-      { name: "Quesadillas", price: "$60 MXN" },
+      { name: "Pizza personal", price: "$90" },
+      { name: "Pizza pepperoni", price: "$110" },
+      { name: "Nuggets con papas", price: "$75" },
+      { name: "Hamburguesa con papas", price: "$85" },
+      { name: "Hot dog", price: "$50" },
+      { name: "Quesadillas", price: "$60" },
     ],
   },
 ] as const;
 
 export const menuHighlights = [
-  { name: "Palomitas", price: "$40 MXN" },
-  { name: "Limonada", price: "$35 MXN" },
-  { name: "Café", price: "$35 MXN" },
-  { name: "Agua", price: "$20 MXN" },
-  { name: "Pizza personal", price: "$90 MXN" },
-  { name: "Nuggets con papas", price: "$75 MXN" },
-  { name: "Elote", price: "$45 MXN" },
-  { name: "Hamburguesa con papas", price: "$85 MXN" },
+  { name: "Palomitas", price: "$40" },
+  { name: "Limonada", price: "$35" },
+  { name: "Café", price: "$35" },
+  { name: "Agua", price: "$20" },
+  { name: "Pizza personal", price: "$90" },
+  { name: "Nuggets con papas", price: "$75" },
+  { name: "Elote", price: "$45" },
+  { name: "Hamburguesa con papas", price: "$85" },
 ] as const;
 
 export const partyRate = 245;
+
+export const partyFood = [
+  { id: "pizza", name: "Pizza extra", price: 110, unit: "pieza" },
+  { id: "nuggets", name: "Nuggets con papas", price: 75, unit: "orden" },
+  { id: "hamburguesa", name: "Hamburguesa con papas", price: 85, unit: "pieza" },
+  { id: "palomitas", name: "Palomitas extra", price: 40, unit: "bolsa" },
+  { id: "elote", name: "Elote", price: 45, unit: "pieza" },
+  { id: "limonada", name: "Jarra de limonada", price: 80, unit: "jarra" },
+] as const;
+
+export const partyServices = [
+  { id: "pastel", name: "Pastel", price: 350 },
+  { id: "fotos", name: "Sesión de fotos", price: 500 },
+  { id: "globos", name: "Decoración de globos", price: 250 },
+  { id: "pinata", name: "Piñata", price: 200 },
+  { id: "dulces", name: "Mesa de dulces", price: 400 },
+  { id: "animador", name: "Animador extra", price: 300 },
+] as const;
 
 export const extras = [
   { label: "Calcetas antiderrapantes", value: "$40" },

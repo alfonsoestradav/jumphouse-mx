@@ -30,19 +30,13 @@ export default function AtraccionesPage() {
               i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
             }`}
           >
-            <div
-              className={`relative w-full overflow-hidden rounded-[2rem] ${
-                i % 3 === 0
-                  ? "min-h-[320px] lg:min-h-[540px] lg:w-[58%]"
-                  : "min-h-[280px] lg:min-h-[420px] lg:w-[48%]"
-              }`}
-            >
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[2rem] lg:w-[42%]">
               <Image
                 src={item.image}
                 alt={item.alt}
                 fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="object-cover object-top"
+                sizes="(min-width: 1024px) 42vw, 100vw"
               />
             </div>
             <div className="lg:flex-1">
