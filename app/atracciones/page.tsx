@@ -35,11 +35,13 @@ export default function AtraccionesPage() {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className={
-                  item.image.includes("/maps-")
-                    ? "object-cover object-center"
-                    : "object-cover object-top"
-                }
+                className={`object-cover ${
+                  "object" in item
+                    ? item.object
+                    : item.image.includes("/maps-")
+                      ? "object-center"
+                      : "object-top"
+                }`}
                 sizes="(min-width: 1024px) 42vw, 100vw"
               />
             </div>

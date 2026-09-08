@@ -130,7 +130,13 @@ export default function HomePage() {
                   src={item.image}
                   alt={item.alt}
                   fill
-                  className="object-cover object-top transition duration-500 group-hover:scale-105"
+                  className={`object-cover transition duration-500 group-hover:scale-105 ${
+                    "object" in item
+                      ? item.object
+                      : item.image.includes("/maps-")
+                        ? "object-center"
+                        : "object-top"
+                  }`}
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

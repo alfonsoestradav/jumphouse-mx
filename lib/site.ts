@@ -172,15 +172,16 @@ export const attractions = [
     slug: "salto-libre",
     title: "Zona de salto",
     copy: "Camas elásticas de colores para brincar sin reloj. Niños, teens y adultos: el parque es para todas las edades.",
-    image: "/images/jump.jpg",
-    alt: "Niño saltando en los trampolines de Jump House",
+    image: "/images/maps-08.jpg",
+    alt: "Gente saltando en las canchas de Jump House",
+    object: "object-[center_80%]",
   },
   {
     slug: "cubos",
     title: "Pozo de cubos",
     copy: "Tírate a los cubos de espuma, escálalos y vuelve a saltar. El rincón favorito para reírse a lo grande.",
-    image: "/images/cubos.jpg",
-    alt: "Pozo de cubos de espuma y muro de escalar en Jump House",
+    image: "/images/maps-11.jpg",
+    alt: "Pozo de cubos de espuma en Jump House",
   },
   {
     slug: "gladiadores",
@@ -193,8 +194,8 @@ export const attractions = [
     slug: "basquet",
     title: "Básquet en el aire",
     copy: "Toma carrera, salta y lanza. Canasta, pelota y trampolín al mismo tiempo.",
-    image: "/images/dunk.jpg",
-    alt: "Salto con pelota hacia la canasta en Jump House",
+    image: "/images/maps-09.jpg",
+    alt: "Canastas de básquet sobre los trampolines de Jump House",
   },
   {
     slug: "escalar",
@@ -214,8 +215,8 @@ export const attractions = [
     slug: "fiestas",
     title: "Fiestas",
     copy: "El cumpleañero entra gratis. Trampolines, merienda, limonada y palomitas: la fecha se arma por WhatsApp.",
-    image: "/images/party.jpg",
-    alt: "Grupo de fiesta sobre las canchas de Jump House",
+    image: "/images/maps-07.jpg",
+    alt: "Área de fiestas en Jump House, con mesas y tobogán",
   },
 ] as const;
 
