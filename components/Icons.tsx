@@ -41,6 +41,17 @@ export function IconInstagram({ className }: { className?: string }) {
   );
 }
 
+export function IconTikTok({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M14.2 3h2.4c.2 1.6 1.1 3 2.4 3.9 1 .7 2.1 1 3.3 1.1v2.5c-1.5 0-2.9-.4-4.2-1.1v6.8c0 3.4-2.7 6.2-6.2 6.2A6.2 6.2 0 0 1 5.7 16c0-3.4 2.8-6.2 6.2-6.2.4 0 .8 0 1.2.1v2.6a3.6 3.6 0 1 0 2.4 3.4V3Z"
+      />
+    </svg>
+  );
+}
+
 export function IconFacebook({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">

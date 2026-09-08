@@ -24,7 +24,7 @@ export function JsonLd() {
       longitude: site.lng,
     },
     openingHours: "Mo-Su 13:00-21:00",
-    sameAs: [site.facebook, site.instagram],
+    sameAs: [site.facebook, site.instagram, site.tiktok],
     priceRange: "$$",
   };
 

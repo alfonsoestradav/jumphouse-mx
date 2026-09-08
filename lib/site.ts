@@ -31,6 +31,7 @@ export const site = {
   facebook: "https://www.facebook.com/JumpHouseMx/",
   instagram: "https://www.instagram.com/jumphousemx/",
   instagramHandle: "@jumphousemx",
+  tiktok: "https://www.tiktok.com/@jumphousemx",
 } as const;
 
 export const nav = [

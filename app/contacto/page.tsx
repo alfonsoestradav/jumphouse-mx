@@ -5,6 +5,7 @@ import {
   IconClock,
   IconFacebook,
   IconInstagram,
+  IconTikTok,
   IconPin,
   IconWhatsApp,
 } from "@/components/Icons";
@@ -104,6 +105,13 @@ export default function ContactoPage() {
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 hover:border-lime hover:text-lime"
                 >
                   <IconFacebook className="h-5 w-5" />
+                </a>
+                <a
+                  href={site.tiktok}
+                  aria-label="TikTok Jump House"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 hover:border-lime hover:text-lime"
+                >
+                  <IconTikTok className="h-5 w-5" />
                 </a>
               </dd>
             </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconFacebook, IconInstagram, IconPin } from "@/components/Icons";
+import { IconFacebook, IconInstagram, IconPin, IconTikTok } from "@/components/Icons";
 import { Logo } from "@/components/Logo";
 import { nav, site, waLink } from "@/lib/site";
 
@@ -69,6 +69,13 @@ export function Footer() {
               className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 hover:border-lime hover:text-lime"
             >
               <IconFacebook className="h-5 w-5" />
+            </a>
+            <a
+              href={site.tiktok}
+              aria-label="TikTok Jump House"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 hover:border-lime hover:text-lime"
+            >
+              <IconTikTok className="h-5 w-5" />
             </a>
           </div>
         </div>
