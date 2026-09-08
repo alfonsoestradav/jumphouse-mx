@@ -200,8 +200,8 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="mt-4 max-w-xl text-muted">
-            Hay cafetería en el parque: palomitas, limonada, café, pizza, nuggets,
-            elotes y más. Pides en caja y no sales a la plaza.
+            Hay cafetería en el parque: pizza, hamburguesas, nuggets, palomitas,
+            elote y refrescos. Pides en caja y no sales a la plaza.
           </p>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {menuHighlights.map((item) => (

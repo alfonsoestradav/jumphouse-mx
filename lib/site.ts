@@ -90,56 +90,65 @@ export const prices = [
 ] as const;
 
 export const menuNote =
-  "Servicio de cafetería en el parque. Precios de referencia; confirma en caja el día de tu visita.";
+  "Menú de la cafetería. Confirma en caja si hay cambios del día.";
 
 export const menu = [
   {
-    id: "bebidas",
-    title: "Bebidas",
+    id: "cocina",
+    title: "Cocina",
     items: [
-      { name: "Agua", price: "$20" },
-      { name: "Café", price: "$35" },
-      { name: "Refresco", price: "$30" },
-      { name: "Limonada", price: "$35" },
-      { name: "Limonada refill", price: "$45" },
-      { name: "Jugo", price: "$30" },
+      { name: "Pizza peperoni", price: "$200" },
+      { name: "Rebanada peperoni", price: "$35" },
+      { name: "Hamburguesa con queso", price: "$120" },
+      { name: "Hamburguesa con queso c/ papas", price: "$140" },
+      { name: "Hamburguesa Western", price: "$140" },
+      { name: "Hamburguesa Western c/ papas", price: "$160" },
+      { name: "Boneless", price: "$120" },
+      { name: "Boneless c/ papas", price: "$140" },
+      { name: "Nuggets", price: "$80" },
+      { name: "Nuggets c/ papas", price: "$100" },
+      { name: "Papas a la francesa", price: "$60" },
+      { name: "Papas preparadas c/ queso", price: "$70" },
     ],
   },
   {
-    id: "snacks",
-    title: "Snacks",
+    id: "botana",
+    title: "Botana",
     items: [
-      { name: "Palomitas", price: "$40" },
-      { name: "Elote", price: "$45" },
-      { name: "Esquite", price: "$45" },
-      { name: "Nachos con queso", price: "$55" },
-      { name: "Papas a la francesa", price: "$50" },
-      { name: "Churros", price: "$40" },
+      { name: "Tostitos y más", price: "$40" },
+      { name: "Tostitos c/ queso y elote", price: "$70" },
+      { name: "Nachos c/ queso", price: "$60" },
+      { name: "Nachos c/ queso y elote", price: "$70" },
+      { name: "Elote en vaso", price: "$50" },
+      { name: "Papas naturales en bote", price: "$70" },
+      { name: "Galletas", price: "$30" },
+      { name: "Palomitas", price: "$30" },
+      { name: "Muffin", price: "$40" },
     ],
   },
   {
-    id: "comida",
-    title: "Para comer",
+    id: "refrescos",
+    title: "Refrescos",
     items: [
-      { name: "Pizza personal", price: "$90" },
-      { name: "Pizza pepperoni", price: "$110" },
-      { name: "Nuggets con papas", price: "$75" },
-      { name: "Hamburguesa con papas", price: "$85" },
-      { name: "Hot dog", price: "$50" },
-      { name: "Quesadillas", price: "$60" },
+      { name: "Coca Cola / refrescos", price: "$30" },
+      { name: "Coca Cola Light", price: "$35" },
+      { name: "Agua chica", price: "$20" },
+      { name: "Agua grande", price: "$30" },
+      { name: "Powerade", price: "$40" },
+      { name: "Limonada refill", price: "$50" },
     ],
   },
 ] as const;
 
 export const menuHighlights = [
-  { name: "Palomitas", price: "$40" },
-  { name: "Limonada", price: "$35" },
-  { name: "Café", price: "$35" },
-  { name: "Agua", price: "$20" },
-  { name: "Pizza personal", price: "$90" },
-  { name: "Nuggets con papas", price: "$75" },
-  { name: "Elote", price: "$45" },
-  { name: "Hamburguesa con papas", price: "$85" },
+  { name: "Palomitas", price: "$30" },
+  { name: "Limonada refill", price: "$50" },
+  { name: "Coca Cola / refrescos", price: "$30" },
+  { name: "Agua chica", price: "$20" },
+  { name: "Rebanada peperoni", price: "$35" },
+  { name: "Pizza peperoni", price: "$200" },
+  { name: "Nuggets", price: "$80" },
+  { name: "Hamburguesa con queso", price: "$120" },
 ] as const;
 
 export const partyRate = 245;

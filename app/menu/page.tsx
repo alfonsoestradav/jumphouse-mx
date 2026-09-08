@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { menu, menuNote, waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Menú",
   description:
-    "Cafetería de Jump House en Plaza Santa Catarina: palomitas, limonada, café, pizza, nuggets, elotes y más. Confirma precios en caja.",
+    "Cafetería de Jump House en Plaza Santa Catarina: pizza, hamburguesas, boneless, nuggets, botanas y refrescos. Confirma precios en caja.",
 };
 
 export default function MenuPage() {
@@ -13,13 +14,23 @@ export default function MenuPage() {
     <>
       <PageHero
         title="Menú"
-        lede="Salta, recarga y sigue. Palomitas, limonada, pizza y lo típico de la cafetería, sin salir del parque."
-        image="/images/pack.jpg"
-        alt="Visitantes de Jump House en Plaza Santa Catarina"
+        lede="Salta, recarga y sigue. Pizza, hamburguesas, botanas y refrescos, sin salir del parque."
+        image="/images/maps-02.jpg"
+        alt="Zona de mesas y cafetería de Jump House"
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
         <p className="max-w-2xl text-muted">{menuNote}</p>
+        <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-white/10">
+          <Image
+            src="/images/menu.jpg"
+            alt="Menú de cafetería de Jump House: cocina, botana y refrescos"
+            width={1600}
+            height={2000}
+            className="h-auto w-full"
+            sizes="(min-width: 1024px) 80vw, 100vw"
+          />
+        </div>
         <div className="mt-12 grid gap-10 lg:grid-cols-3">
           {menu.map((group) => (
             <div key={group.id}>
