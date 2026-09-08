@@ -152,15 +152,34 @@ export const menuHighlights = [
 ] as const;
 
 export const partyRate = 245;
+export const partyDepositRate = 0.3;
+export const partyExtraGuestFee = 20;
 
 export const partyServices = [
-  { id: "pastel", name: "Pastel", price: 350 },
-  { id: "fotos", name: "Sesión de fotos", price: 500 },
-  { id: "globos", name: "Decoración de globos", price: 250 },
-  { id: "pinata", name: "Piñata", price: 200 },
-  { id: "dulces", name: "Mesa de dulces", price: 400 },
-  { id: "animador", name: "Animador extra", price: 300 },
+  { id: "quequitos", name: "Quequitos", price: 30, unit: "c/u", kind: "qty" },
+  { id: "pizza", name: "Pizza extra", price: 200, unit: "grande", kind: "qty" },
+  { id: "privado", name: "Evento privado", price: 0, unit: null, kind: "flag" },
+  { id: "varitas", name: "Varitas neón", price: 60, unit: "c/u", kind: "qty" },
 ] as const;
+
+export const partyTerms = {
+  extrasNote:
+    "Si el día del evento hay más de 5 invitados extra, el precio aumenta $20.",
+  deposit:
+    "Se requiere el 30% del monto para separar la fecha. El resto debe estar liquidado por lo menos 3 días antes del evento.",
+  important: [
+    "En Jump House se pueden realizar eventos simultáneos.",
+    "En caso de cancelaciones, no hay devoluciones del anticipo.",
+    "La cantidad de invitados contratados es la garantía que se debe pagar en su totalidad.",
+    "Si desea una fiesta con exclusividad de espacio, consulte con el área de eventos las condiciones y el tipo de evento.",
+    "Si requiere cambiar la fecha de su evento, habrá una penalización de $1,000, sujeta a disponibilidad.",
+    "Si cancela sin previo aviso por causas de fuerza mayor, se devolverá el 100% del anticipo o se reprogramará la fecha, sujeta a disponibilidad.",
+  ],
+  restrictions: [
+    "No está permitido entrar con ningún tipo de alimentos ni bebidas al parque.",
+    "Al confirmar el evento, las partes manifiestan estar de acuerdo con estas condiciones.",
+  ],
+} as const;
 
 export const extras = [
   { label: "Calcetas antiderrapantes", value: "$40 · no incluidas" },

@@ -2,7 +2,13 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { DateCalendar, formatMx } from "@/components/DateCalendar";
-import { partyRate, partyServices, waLink } from "@/lib/site";
+import {
+  partyDepositRate,
+  partyRate,
+  partyServices,
+  partyTerms,
+  waLink,
+} from "@/lib/site";
 
 const GUEST_MIN = 0;
 const GUEST_MAX = 100;
@@ -88,20 +94,27 @@ export function PartyForm() {
   const [date, setDate] = useState<Date | null>(null);
   const [adults, setAdults] = useState(10);
   const [kids, setKids] = useState(5);
-  const [services, setServices] = useState<Record<string, boolean>>({});
+  const [qty, setQty] = useState<Record<string, number>>({});
+  const [privado, setPrivado] = useState(false);
   const [guestError, setGuestError] = useState("");
 
   const guests = adults + kids;
   const jumpTotal = guests * partyRate;
-  const serviceTotal = partyServices.reduce(
-    (sum, item) => sum + (services[item.id] ? item.price : 0),
-    0,
-  );
+  const serviceTotal = partyServices.reduce((sum, item) => {
+    if (item.kind !== "qty") return sum;
+    return sum + (qty[item.id] || 0) * item.price;
+  }, 0);
   const total = jumpTotal + serviceTotal;
+  const deposit = Math.round(total * partyDepositRate);
 
-  const serviceLines = partyServices
-    .filter((item) => services[item.id])
-    .map((item) => `${item.name} (${money(item.price)})`);
+  const serviceLines = partyServices.flatMap((item) => {
+    if (item.kind === "flag") {
+      return privado ? [`${item.name}: consultar condiciones`] : [];
+    }
+    const n = qty[item.id] || 0;
+    if (n <= 0) return [];
+    return [`${item.name} x${n} (${money(item.price * n)})`];
+  });
 
   const message = useMemo(() => {
     const lines = [
@@ -120,9 +133,20 @@ export function PartyForm() {
       lines.push("Servicios adicionales: no");
     }
     lines.push(`Estimado total: ${money(total)}`);
+    lines.push(`Anticipo 30%: ${money(deposit)}`);
     lines.push("Confirmo disponibilidad y el paquete del día.");
     return lines.join("\n");
-  }, [name, date, adults, kids, guests, jumpTotal, serviceLines, total]);
+  }, [
+    name,
+    date,
+    adults,
+    kids,
+    guests,
+    jumpTotal,
+    serviceLines,
+    total,
+    deposit,
+  ]);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -141,8 +165,8 @@ export function PartyForm() {
     >
       <p className="font-display text-4xl">Calcula tu evento</p>
       <p className="mt-2 text-sm text-muted">
-        Salto desde ${partyRate} por persona. Suma servicios adicionales; el
-        estimado va en el WhatsApp.
+        Salto desde ${partyRate} por persona. Suma extras; el estimado y el
+        anticipo del 30% van en el WhatsApp.
       </p>
 
       <label className="mt-6 block text-sm font-semibold">
@@ -191,35 +215,61 @@ export function PartyForm() {
 
       <p className="mt-8 font-display text-3xl">Servicios adicionales</p>
       <ul className="mt-3 space-y-2">
-        {partyServices.map((item) => (
-          <li key={item.id}>
-            <label className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 px-4 py-3">
-              <span className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  checked={!!services[item.id]}
-                  onChange={(e) =>
-                    setServices((prev) => ({
-                      ...prev,
-                      [item.id]: e.target.checked,
-                    }))
-                  }
-                  className="h-5 w-5 accent-[#c6ff2e]"
-                />
+        {partyServices.map((item) =>
+          item.kind === "flag" ? (
+            <li key={item.id}>
+              <label className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 px-4 py-3">
+                <span className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={privado}
+                    onChange={(e) => setPrivado(e.target.checked)}
+                    className="h-5 w-5 accent-[#c6ff2e]"
+                  />
+                  <span className="font-semibold">{item.name}</span>
+                </span>
+                <span className="text-sm text-lime">Consultar</span>
+              </label>
+            </li>
+          ) : (
+            <li
+              key={item.id}
+              className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 px-4 py-3"
+            >
+              <span>
                 <span className="font-semibold">{item.name}</span>
+                <span className="ml-2 text-sm text-muted">
+                  ${item.price} {item.unit}
+                </span>
               </span>
-              <span className="text-lime">${item.price}</span>
-            </label>
-          </li>
-        ))}
+              <input
+                type="number"
+                min={0}
+                value={qty[item.id] || 0}
+                onChange={(e) =>
+                  setQty((prev) => ({
+                    ...prev,
+                    [item.id]: Math.max(0, Number(e.target.value) || 0),
+                  }))
+                }
+                className="w-16 rounded-xl border border-white/10 bg-void px-2 py-1 text-center text-ink"
+                aria-label={`Cantidad de ${item.name}`}
+              />
+            </li>
+          ),
+        )}
       </ul>
+      <p className="mt-3 text-sm text-muted">{partyTerms.extrasNote}</p>
 
       <div className="mt-6 rounded-2xl border border-lime/30 bg-void px-5 py-4">
         <p className="text-sm text-muted">Estimado del evento</p>
         <p className="font-display mt-1 text-5xl text-lime">{money(total)}</p>
         <p className="mt-2 text-sm text-muted">
           Salto {money(jumpTotal)} ({adults} adultos · {kids} niños)
-          {serviceTotal ? ` · servicios ${money(serviceTotal)}` : ""}
+          {serviceTotal ? ` · extras ${money(serviceTotal)}` : ""}
+        </p>
+        <p className="mt-2 text-sm text-muted">
+          Anticipo 30%: {money(deposit)} · resto 3 días antes
         </p>
       </div>
 
