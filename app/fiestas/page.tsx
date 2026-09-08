@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { PartyForm } from "@/components/PartyForm";
 import { site } from "@/lib/site";
@@ -36,6 +37,15 @@ export default function FiestasPage() {
               Usa el calculador: adultos, niños y servicios adicionales (pastel,
               fotos, globos). El WhatsApp sale con el estimado ({site.address.place}).
             </p>
+            <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-[2rem]">
+              <Image
+                src="/images/maps-07.jpg"
+                alt="Área de fiestas en Jump House, con mesas, globo y tobogán"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            </div>
           </div>
 
           <PartyForm />
