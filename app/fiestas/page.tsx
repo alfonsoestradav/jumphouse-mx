@@ -33,7 +33,7 @@ export default function FiestasPage() {
               {site.hoursLabel}.
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">
-              Usa el calculador: invitados, comida extra y servicios (pastel,
+              Usa el calculador: invitados y servicios adicionales (pastel,
               fotos, globos). El WhatsApp sale con el estimado ({site.address.place}).
             </p>
           </div>

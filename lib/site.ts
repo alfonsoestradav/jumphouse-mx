@@ -136,15 +136,6 @@ export const menuHighlights = [
 
 export const partyRate = 245;
 
-export const partyFood = [
-  { id: "pizza", name: "Pizza extra", price: 110, unit: "pieza" },
-  { id: "nuggets", name: "Nuggets con papas", price: 75, unit: "orden" },
-  { id: "hamburguesa", name: "Hamburguesa con papas", price: 85, unit: "pieza" },
-  { id: "palomitas", name: "Palomitas extra", price: 40, unit: "bolsa" },
-  { id: "elote", name: "Elote", price: 45, unit: "pieza" },
-  { id: "limonada", name: "Jarra de limonada", price: 80, unit: "jarra" },
-] as const;
-
 export const partyServices = [
   { id: "pastel", name: "Pastel", price: 350 },
   { id: "fotos", name: "Sesión de fotos", price: 500 },

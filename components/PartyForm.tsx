@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { partyFood, partyRate, partyServices, waLink } from "@/lib/site";
+import { partyRate, partyServices, waLink } from "@/lib/site";
 
 function money(n: number) {
   return n.toLocaleString("es-MX", {
@@ -11,29 +11,41 @@ function money(n: number) {
   });
 }
 
+function maskDate(raw: string) {
+  const digits = raw.replace(/\D/g, "").slice(0, 8);
+  if (digits.length <= 2) return digits;
+  if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+}
+
+function isValidDate(value: string) {
+  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
+  if (!match) return false;
+  const day = Number(match[1]);
+  const month = Number(match[2]);
+  const year = Number(match[3]);
+  const parsed = new Date(year, month - 1, day);
+  return (
+    parsed.getFullYear() === year &&
+    parsed.getMonth() === month - 1 &&
+    parsed.getDate() === day
+  );
+}
+
 export function PartyForm() {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState(15);
-  const [birthday, setBirthday] = useState(true);
-  const [foodQty, setFoodQty] = useState<Record<string, number>>({});
   const [services, setServices] = useState<Record<string, boolean>>({});
+  const [dateError, setDateError] = useState("");
 
-  const paying = Math.max(0, birthday ? guests - 1 : guests);
-  const jumpTotal = paying * partyRate;
-  const foodTotal = partyFood.reduce(
-    (sum, item) => sum + (foodQty[item.id] || 0) * item.price,
-    0,
-  );
+  const jumpTotal = guests * partyRate;
   const serviceTotal = partyServices.reduce(
     (sum, item) => sum + (services[item.id] ? item.price : 0),
     0,
   );
-  const total = jumpTotal + foodTotal + serviceTotal;
+  const total = jumpTotal + serviceTotal;
 
-  const foodLines = partyFood
-    .filter((item) => (foodQty[item.id] || 0) > 0)
-    .map((item) => `${item.name} x${foodQty[item.id]} (${money(item.price * foodQty[item.id])})`);
   const serviceLines = partyServices
     .filter((item) => services[item.id])
     .map((item) => `${item.name} (${money(item.price)})`);
@@ -44,38 +56,26 @@ export function PartyForm() {
       `Nombre: ${name.trim() || "—"}`,
       `Fecha: ${date || "por definir"}`,
       `Invitados: ${guests}`,
-      `Cumpleañero entra gratis: ${birthday ? "sí" : "no"}`,
-      `Salto: ${paying} × $${partyRate} = ${money(jumpTotal)}`,
+      `Salto: ${guests} × $${partyRate} = ${money(jumpTotal)}`,
     ];
-    if (foodLines.length) {
-      lines.push("Comida extra:");
-      foodLines.forEach((line) => lines.push(`- ${line}`));
-    } else {
-      lines.push("Comida extra: no");
-    }
     if (serviceLines.length) {
-      lines.push("Servicios:");
+      lines.push("Servicios adicionales:");
       serviceLines.forEach((line) => lines.push(`- ${line}`));
     } else {
-      lines.push("Servicios extra: no");
+      lines.push("Servicios adicionales: no");
     }
     lines.push(`Estimado total: ${money(total)}`);
     lines.push("Confirmo disponibilidad y el paquete del día.");
     return lines.join("\n");
-  }, [
-    name,
-    date,
-    guests,
-    birthday,
-    paying,
-    jumpTotal,
-    foodLines,
-    serviceLines,
-    total,
-  ]);
+  }, [name, date, guests, jumpTotal, serviceLines, total]);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
+    if (date && !isValidDate(date)) {
+      setDateError("Usa el formato dd/mm/aaaa, por ejemplo 08/09/2026.");
+      return;
+    }
+    setDateError("");
     window.open(waLink(message), "_blank", "noopener,noreferrer");
   }
 
@@ -86,7 +86,7 @@ export function PartyForm() {
     >
       <p className="font-display text-4xl">Calcula tu evento</p>
       <p className="mt-2 text-sm text-muted">
-        Salto desde ${partyRate} por persona. Suma comida y servicios; el
+        Salto desde ${partyRate} por persona. Suma servicios adicionales; el
         estimado va en el WhatsApp.
       </p>
 
@@ -103,12 +103,24 @@ export function PartyForm() {
       <label className="mt-4 block text-sm font-semibold">
         Fecha tentativa
         <input
-          type="date"
+          type="text"
+          inputMode="numeric"
+          placeholder="dd/mm/aaaa"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => {
+            setDate(maskDate(e.target.value));
+            if (dateError) setDateError("");
+          }}
+          pattern="\d{2}/\d{2}/\d{4}"
+          title="Usa el formato dd/mm/aaaa"
           className="mt-2 w-full rounded-2xl border border-white/10 bg-void px-4 py-3 text-ink"
         />
       </label>
+      {dateError ? (
+        <p className="mt-2 text-sm text-magenta">{dateError}</p>
+      ) : (
+        <p className="mt-2 text-sm text-muted">Formato: dd/mm/aaaa</p>
+      )}
       <label className="mt-4 block text-sm font-semibold">
         Número de invitados
         <input
@@ -119,50 +131,8 @@ export function PartyForm() {
           className="mt-2 w-full rounded-2xl border border-white/10 bg-void px-4 py-3 text-ink"
         />
       </label>
-      <label className="mt-4 flex items-center gap-3 text-sm font-semibold">
-        <input
-          type="checkbox"
-          checked={birthday}
-          onChange={(e) => setBirthday(e.target.checked)}
-          className="h-5 w-5 accent-[#c6ff2e]"
-        />
-        El cumpleañero entra gratis
-      </label>
 
-      <p className="mt-8 font-display text-3xl">Comida extra</p>
-      <p className="mt-1 text-sm text-muted">
-        El paquete ya trae merienda. Esto es adicional.
-      </p>
-      <ul className="mt-3 space-y-2">
-        {partyFood.map((item) => (
-          <li
-            key={item.id}
-            className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 px-4 py-3"
-          >
-            <span>
-              <span className="font-semibold">{item.name}</span>
-              <span className="ml-2 text-sm text-muted">
-                ${item.price} / {item.unit}
-              </span>
-            </span>
-            <input
-              type="number"
-              min={0}
-              value={foodQty[item.id] || 0}
-              onChange={(e) =>
-                setFoodQty((prev) => ({
-                  ...prev,
-                  [item.id]: Math.max(0, Number(e.target.value) || 0),
-                }))
-              }
-              className="w-16 rounded-xl border border-white/10 bg-void px-2 py-1 text-center text-ink"
-              aria-label={`Cantidad de ${item.name}`}
-            />
-          </li>
-        ))}
-      </ul>
-
-      <p className="mt-8 font-display text-3xl">Servicios</p>
+      <p className="mt-8 font-display text-3xl">Servicios adicionales</p>
       <ul className="mt-3 space-y-2">
         {partyServices.map((item) => (
           <li key={item.id}>
@@ -192,7 +162,6 @@ export function PartyForm() {
         <p className="font-display mt-1 text-5xl text-lime">{money(total)}</p>
         <p className="mt-2 text-sm text-muted">
           Salto {money(jumpTotal)}
-          {foodTotal ? ` · comida ${money(foodTotal)}` : ""}
           {serviceTotal ? ` · servicios ${money(serviceTotal)}` : ""}
         </p>
       </div>
