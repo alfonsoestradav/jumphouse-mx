@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IconArrow, IconClock, IconPin } from "@/components/Icons";
-import { attractions, extras, jobs, prices, site, waLink } from "@/lib/site";
+import { attractions, extras, jobs, menuHighlights, prices, site, waLink } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -179,6 +179,34 @@ export default function HomePage() {
         <Link href="/precios" className="mt-8 inline-block font-extrabold text-lime">
           Detalle de precios y promociones →
         </Link>
+      </section>
+
+      <section className="bg-void-2 py-20">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="font-display max-w-xl text-6xl sm:text-8xl">
+              Come y sigue saltando
+            </h2>
+            <Link href="/menu" className="font-extrabold text-lime hover:text-white">
+              Ver menú completo →
+            </Link>
+          </div>
+          <p className="mt-4 max-w-xl text-muted">
+            Hay cafetería en el parque: palomitas, limonada, café, pizza, nuggets,
+            elotes y más. Pides en caja y no sales a la plaza.
+          </p>
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {menuHighlights.map((item) => (
+              <div
+                key={item.name}
+                className="flex items-baseline justify-between gap-3 rounded-2xl border border-white/10 px-5 py-4"
+              >
+                <span className="font-semibold">{item.name}</span>
+                <span className="font-display text-3xl text-lime">{item.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="relative isolate overflow-hidden">

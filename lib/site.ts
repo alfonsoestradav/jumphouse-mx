@@ -37,6 +37,7 @@ export const nav = [
   { href: "/", label: "Inicio" },
   { href: "/atracciones", label: "Atracciones" },
   { href: "/precios", label: "Precios" },
+  { href: "/menu", label: "Menú" },
   { href: "/fiestas", label: "Fiestas" },
   { href: "/galeria", label: "Galería" },
   { href: "/reglas", label: "Reglas" },
@@ -77,6 +78,59 @@ export const prices = [
     note: "Sábado y domingo, todo el día",
     highlight: true,
   },
+] as const;
+
+export const menuNote =
+  "Servicio de cafetería en el parque. Precios de referencia; confirma en caja el día de tu visita.";
+
+export const menu = [
+  {
+    id: "bebidas",
+    title: "Bebidas",
+    items: [
+      { name: "Agua", price: "$20" },
+      { name: "Café", price: "$35" },
+      { name: "Refresco", price: "$30" },
+      { name: "Limonada", price: "$35" },
+      { name: "Limonada refill", price: "$45" },
+      { name: "Jugo", price: "$30" },
+    ],
+  },
+  {
+    id: "snacks",
+    title: "Snacks",
+    items: [
+      { name: "Palomitas", price: "$40" },
+      { name: "Elote", price: "$45" },
+      { name: "Esquite", price: "$45" },
+      { name: "Nachos con queso", price: "$55" },
+      { name: "Papas a la francesa", price: "$50" },
+      { name: "Churros", price: "$40" },
+    ],
+  },
+  {
+    id: "comida",
+    title: "Para comer",
+    items: [
+      { name: "Pizza personal", price: "$90" },
+      { name: "Pizza pepperoni", price: "$110" },
+      { name: "Nuggets con papas", price: "$75" },
+      { name: "Hamburguesa con papas", price: "$85" },
+      { name: "Hot dog", price: "$50" },
+      { name: "Quesadillas", price: "$60" },
+    ],
+  },
+] as const;
+
+export const menuHighlights = [
+  { name: "Palomitas", price: "$40" },
+  { name: "Limonada", price: "$35" },
+  { name: "Café", price: "$35" },
+  { name: "Agua", price: "$20" },
+  { name: "Pizza personal", price: "$90" },
+  { name: "Nuggets con papas", price: "$75" },
+  { name: "Elote", price: "$45" },
+  { name: "Hamburguesa con papas", price: "$85" },
 ] as const;
 
 export const extras = [
