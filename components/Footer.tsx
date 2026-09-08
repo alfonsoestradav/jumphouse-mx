@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { IconFacebook, IconInstagram, IconPin } from "@/components/Icons";
+import { Logo } from "@/components/Logo";
 import { nav, site, waLink } from "@/lib/site";
 
 export function Footer() {
@@ -9,7 +10,7 @@ export function Footer() {
       <div className="pointer-events-none absolute -right-16 bottom-0 h-64 w-64 rounded-full bg-lime/10 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
         <div>
-          <p className="font-display text-6xl text-lime">JUMP HOUSE</p>
+          <Logo height={92} />
           <p className="mt-3 max-w-sm text-muted">
             Parque de trampolines en Plaza Santa Catarina. Salto ilimitado, fiestas
             y el plan que saca a toda la familia de la casa.

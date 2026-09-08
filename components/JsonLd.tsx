@@ -9,6 +9,7 @@ export function JsonLd() {
     url: site.url,
     telephone: site.phoneTel,
     image: `${site.url}/images/park.jpg`,
+    logo: `${site.url}/images/logo.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: `${site.address.street}, ${site.address.place}`,

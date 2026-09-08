@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IconClose, IconMenu } from "@/components/Icons";
+import { Logo } from "@/components/Logo";
 import { nav, site, waLink } from "@/lib/site";
 
 export function Header() {
@@ -29,14 +30,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
-        <Link href="/" className="flex items-baseline gap-2 text-ink">
-          <span className="font-display text-[2.15rem] leading-none tracking-tight text-lime">
-            JUMP
-          </span>
-          <span className="font-display text-[2.15rem] leading-none tracking-tight">
-            HOUSE
-          </span>
-        </Link>
+        <Logo height={48} />
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Principal">
           {nav.map((item) => {
