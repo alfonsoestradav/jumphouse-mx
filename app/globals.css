@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+:root {
+  --void: #07060c;
+  --void-2: #12101a;
+  --ink: #f4f0e4;
+  --muted: #c9c2b2;
+  --lime: #c6ff2e;
+  --lime-deep: #9ad400;
+  --magenta: #ff2eb8;
+  --violet: #6d3bff;
+  --hot: #ff7a1a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-void: var(--void);
+  --color-void-2: var(--void-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-lime: var(--lime);
+  --color-lime-deep: var(--lime-deep);
+  --color-magenta: var(--magenta);
+  --color-violet: var(--violet);
+  --color-hot: var(--hot);
+  --font-display: var(--font-teko);
+  --font-sans: var(--font-karla);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--void);
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--void);
+  color: var(--ink);
+  font-family: var(--font-karla), "Segoe UI", sans-serif;
+  font-feature-settings: "ss01" on;
+}
+
+::selection {
+  background: var(--lime);
+  color: #111;
+}
+
+:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+input,
+textarea,
+select {
+  caret-color: var(--lime);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0a10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3648;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--magenta);
+}
+
+.font-display {
+  font-family: var(--font-teko), Impact, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 0.86;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  min-width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes trampoline {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  28% {
+    transform: translateY(10px) scaleY(0.88);
+  }
+  52% {
+    transform: translateY(-18px) scaleY(1.08);
+  }
+  74% {
+    transform: translateY(6px) scaleY(0.96);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.jump-title {
+  transform-origin: 50% 100%;
+  animation: trampoline 1.15s cubic-bezier(0.22, 1.2, 0.36, 1) 0.2s both;
+}
+
+.jump-title:hover {
+  animation: trampoline 0.7s cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+
+@keyframes glowpulse {
+  0%,
+  100% {
+    box-shadow: 0 18px 40px rgba(198, 255, 46, 0.18);
+  }
+  50% {
+    box-shadow: 0 18px 50px rgba(255, 46, 184, 0.28);
+  }
+}
+
+.cta-glow {
+  animation: glowpulse 3.4s ease-in-out infinite;
+}
+
+.grid-noise {
+  background-image:
+    linear-gradient(rgba(198, 255, 46, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 46, 184, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
