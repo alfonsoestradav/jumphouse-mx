@@ -200,9 +200,9 @@ export const attractions = [
   {
     slug: "escalar",
     title: "Muro de escalar",
-    copy: "Presas de colores sobre el muro morado. Sube, baja y lánzate otra vez a los cubos.",
-    image: "/images/cubos.jpg",
-    alt: "Muro de escalar junto al pozo de cubos",
+    copy: "Presas de colores sobre el muro. Sube, baja y lánzate otra vez a los cubos.",
+    image: "/images/maps-04.jpg",
+    alt: "Muro de escalar en Jump House",
   },
   {
     slug: "playground",
