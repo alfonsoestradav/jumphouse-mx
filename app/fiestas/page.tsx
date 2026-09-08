@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { PartyForm } from "@/components/PartyForm";
-import { site, waLink } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Fiestas",
@@ -33,21 +33,9 @@ export default function FiestasPage() {
               {site.hoursLabel}.
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">
-              No publicamos un menú cerrado en la web. Te confirmamos el paquete
-              por WhatsApp según la fecha, el número de invitados y lo que haya
-              disponible ese día.
+              Usa el calculador: invitados, fecha y si el cumpleañero entra
+              gratis. El mensaje de WhatsApp sale con el estimado ({site.address.place}).
             </p>
-            <p className="mt-5 max-w-xl text-lg text-muted">
-              Estamos en {site.address.place}, {site.address.street}.
-            </p>
-            <a
-              href={waLink(
-                "Hola Jump House, quiero cotizar una fiesta de cumpleaños.",
-              )}
-              className="mt-8 inline-flex rounded-full bg-magenta px-6 py-3.5 font-extrabold text-white hover:bg-white hover:text-void"
-            >
-              Escribir por WhatsApp
-            </a>
           </div>
 
           <PartyForm />

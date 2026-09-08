@@ -25,11 +25,11 @@ export default function AvisoDePrivacidadPage() {
         <div>
           <h2 className="font-display text-4xl text-lime">Datos que recabamos</h2>
           <p className="mt-3">
-            En este sitio no hay cuentas ni pagos en línea. El formulario de
-            cotización de fiestas recaba nombre, fecha tentativa y número de
-            invitados. Al enviarlo, esos datos se abren en un mensaje de WhatsApp
-            para que podamos atenderle. No recabamos RFC, identificaciones ni
-            datos financieros.
+            En este sitio no hay cuentas ni pagos en línea. El calculador de
+            fiestas recaba nombre, fecha tentativa, número de invitados y si el
+            cumpleañero entra gratis. Al enviarlo, esos datos y el estimado se
+            abren en un mensaje de WhatsApp. No recabamos RFC, identificaciones
+            ni datos financieros.
           </p>
         </div>
 

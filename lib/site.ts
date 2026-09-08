@@ -133,6 +133,8 @@ export const menuHighlights = [
   { name: "Hamburguesa con papas", price: "$85" },
 ] as const;
 
+export const partyRate = 245;
+
 export const extras = [
   { label: "Calcetas antiderrapantes", value: "$40" },
   { label: "Cumpleañeros", value: "Entran gratis" },

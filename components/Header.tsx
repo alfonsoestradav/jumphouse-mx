@@ -29,8 +29,8 @@ export function Header() {
         scrolled || open ? "bg-void/95 backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
-        <Logo height={48} />
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+        <Logo height={84} />
 
         <nav className="hidden items-center gap-5 xl:gap-7 lg:flex" aria-label="Principal">
           {nav.map((item) => {
