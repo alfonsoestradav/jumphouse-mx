@@ -40,6 +40,7 @@ export const nav = [
   { href: "/fiestas", label: "Fiestas" },
   { href: "/galeria", label: "Galería" },
   { href: "/reglas", label: "Reglas" },
+  { href: "/vacantes", label: "Vacantes" },
   { href: "/contacto", label: "Contacto" },
 ] as const;
 
@@ -84,6 +85,21 @@ export const extras = [
   { label: "Acompañantes que no saltan", value: "No pagan entrada" },
   { label: "Tiempo de salto", value: "Ilimitado" },
 ] as const;
+
+export const jobs = {
+  title: "Únete a nuestro equipo",
+  role: "Animador(a) de Trampolín",
+  intro:
+    "Estamos buscando Animadores(as) de Trampolín para formar parte de nuestro equipo. Si eres una persona activa, responsable y con buena actitud, queremos conocerte.",
+  shifts: [
+    { label: "Medio turno", hours: "12:30 p.m. a 5:00 p.m." },
+    { label: "Medio turno", hours: "5:00 p.m. a 9:30 p.m." },
+  ],
+  image: "/images/vacantes.jpg",
+  alt: "Convocatoria de Jump House: vacantes de animador de trampolín, medio turno",
+  whatsappText:
+    "Hola Jump House, me interesa la vacante de Animador(a) de Trampolín.",
+} as const;
 
 export const attractions = [
   {

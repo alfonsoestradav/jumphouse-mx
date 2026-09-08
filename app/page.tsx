@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IconArrow, IconClock, IconPin } from "@/components/Icons";
-import { attractions, extras, prices, site, waLink } from "@/lib/site";
+import { attractions, extras, jobs, prices, site, waLink } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -206,6 +206,42 @@ export default function HomePage() {
               Ver fiestas
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8 lg:py-24">
+        <div className="relative min-h-[420px] overflow-hidden rounded-[2rem]">
+          <Image
+            src={jobs.image}
+            alt={jobs.alt}
+            fill
+            className="object-cover object-top"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+          />
+        </div>
+        <div>
+          <h2 className="font-display text-6xl sm:text-8xl">{jobs.title}</h2>
+          <p className="mt-5 max-w-md text-lg text-muted">{jobs.intro}</p>
+          <ul className="mt-8 space-y-3">
+            {jobs.shifts.map((shift) => (
+              <li
+                key={shift.hours}
+                className="rounded-2xl border border-white/10 bg-void-2 px-5 py-4"
+              >
+                <p className="font-extrabold text-lime">{jobs.role}</p>
+                <p className="mt-1 text-ink">
+                  {shift.label} · {shift.hours}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={waLink(jobs.whatsappText)}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3.5 font-extrabold text-void"
+          >
+            Aplicar por WhatsApp
+            <IconArrow className="h-5 w-5" />
+          </a>
         </div>
       </section>
     </>

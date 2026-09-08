@@ -32,7 +32,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
         <Logo height={48} />
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-5 xl:gap-7 lg:flex" aria-label="Principal">
           {nav.map((item) => {
             const active = pathname === item.href;
             return (
