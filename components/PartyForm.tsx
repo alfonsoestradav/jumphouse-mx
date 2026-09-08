@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import { DateCalendar, formatMx } from "@/components/DateCalendar";
 import { partyRate, partyServices, waLink } from "@/lib/site";
 
 const GUEST_MIN = 0;
@@ -82,34 +83,12 @@ function GuestSlider({
   );
 }
 
-function maskDate(raw: string) {
-  const digits = raw.replace(/\D/g, "").slice(0, 8);
-  if (digits.length <= 2) return digits;
-  if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
-  return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
-}
-
-function isValidDate(value: string) {
-  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
-  if (!match) return false;
-  const day = Number(match[1]);
-  const month = Number(match[2]);
-  const year = Number(match[3]);
-  const parsed = new Date(year, month - 1, day);
-  return (
-    parsed.getFullYear() === year &&
-    parsed.getMonth() === month - 1 &&
-    parsed.getDate() === day
-  );
-}
-
 export function PartyForm() {
   const [name, setName] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState<Date | null>(null);
   const [adults, setAdults] = useState(10);
   const [kids, setKids] = useState(5);
   const [services, setServices] = useState<Record<string, boolean>>({});
-  const [dateError, setDateError] = useState("");
   const [guestError, setGuestError] = useState("");
 
   const guests = adults + kids;
@@ -128,7 +107,7 @@ export function PartyForm() {
     const lines = [
       "Hola Jump House, quiero cotizar una fiesta.",
       `Nombre: ${name.trim() || "—"}`,
-      `Fecha: ${date || "por definir"}`,
+      `Fecha: ${date ? formatMx(date) : "por definir"}`,
       `Adultos: ${adults}`,
       `Niños: ${kids}`,
       `Invitados: ${guests}`,
@@ -147,15 +126,10 @@ export function PartyForm() {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (date && !isValidDate(date)) {
-      setDateError("Usa el formato dd/mm/aaaa, por ejemplo 08/09/2026.");
-      return;
-    }
     if (guests < 1) {
       setGuestError("Indica al menos 1 invitado.");
       return;
     }
-    setDateError("");
     setGuestError("");
     window.open(waLink(message), "_blank", "noopener,noreferrer");
   }
@@ -181,25 +155,12 @@ export function PartyForm() {
           autoComplete="name"
         />
       </label>
-      <label className="mt-4 block text-sm font-semibold">
-        Fecha tentativa
-        <input
-          type="text"
-          inputMode="numeric"
-          placeholder="dd/mm/aaaa"
-          value={date}
-          onChange={(e) => {
-            setDate(maskDate(e.target.value));
-            if (dateError) setDateError("");
-          }}
-          pattern="\d{2}/\d{2}/\d{4}"
-          title="Usa el formato dd/mm/aaaa"
-          className="mt-2 w-full rounded-2xl border border-white/10 bg-void px-4 py-3 text-ink"
-        />
-      </label>
-      {dateError ? (
-        <p className="mt-2 text-sm text-magenta">{dateError}</p>
-      ) : null}
+      <div className="mt-4">
+        <p className="text-sm font-semibold">Fecha tentativa</p>
+        <div className="mt-2">
+          <DateCalendar value={date} onChange={setDate} />
+        </div>
+      </div>
       <div className="mt-6">
         <p className="text-sm font-semibold">Número de invitados</p>
         <p className="mt-1 text-sm text-muted">
