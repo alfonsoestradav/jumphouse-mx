@@ -49,12 +49,13 @@ export default function HomePage() {
           <div className="marquee-track font-display text-2xl tracking-wide">
             {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className="flex gap-10 pr-10">
-                <span>Súper lunes $130</span>
-                <span>Martes a jueves $180 antes de 3:30</span>
-                <span>Jump Pack fin de semana $250</span>
-                <span>Cumpleañeros entran gratis</span>
+                <span>Entrada general $250</span>
+                <span>Lunes de Locura $130</span>
+                <span>Happy Hour $180 antes de 3:30</span>
+                <span>Jump Pack sáb y dom $250</span>
+                <span>Cumpleañeros gratis con CURP o acta</span>
+                <span>Acompañantes sin costo</span>
                 <span>Tiempo ilimitado</span>
-                <span>Solo paga quien salta</span>
               </div>
             ))}
           </div>
@@ -156,7 +157,7 @@ export default function HomePage() {
           Promos publicadas en redes. Sujetas a cambio. La entrada no incluye
           calcetas ($40).
         </p>
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {prices.map((p) => (
             <article
               key={p.id}

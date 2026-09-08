@@ -56,8 +56,16 @@ export function waLink(text?: string) {
 
 export const prices = [
   {
+    id: "general",
+    day: "Entrada general",
+    price: "$250",
+    detail: "No incluye calcetas antiderrapantes",
+    note: "Tiempo ilimitado, de 1:00 p.m. a 9:00 p.m.",
+    highlight: false,
+  },
+  {
     id: "lunes",
-    day: "Súper lunes",
+    day: "Lunes de Locura",
     price: "$130",
     detail: "Entrada general todo el día",
     note: "Tiempo ilimitado",
@@ -65,15 +73,15 @@ export const prices = [
   },
   {
     id: "semana",
-    day: "Martes a jueves",
+    day: "Happy Hour",
     price: "$180",
-    detail: "Entrada general antes de las 3:30 p.m.",
-    note: "Tiempo ilimitado",
+    detail: "Martes a jueves, si llegas antes de las 3:30 p.m.",
+    note: "Después de las 3:30 p.m. aplica entrada general $250",
     highlight: false,
   },
   {
     id: "finde",
-    day: "Jump Pack fin de semana",
+    day: "Jump Pack",
     price: "$250",
     detail: "Entrada general + limonada refill + bolsa de palomitas",
     note: "Sábado y domingo, todo el día",
@@ -146,10 +154,10 @@ export const partyServices = [
 ] as const;
 
 export const extras = [
-  { label: "Calcetas antiderrapantes", value: "$40" },
-  { label: "Cumpleañeros", value: "Entran gratis" },
-  { label: "Acompañantes que no saltan", value: "No pagan entrada" },
-  { label: "Tiempo de salto", value: "Ilimitado" },
+  { label: "Calcetas antiderrapantes", value: "$40 · no incluidas" },
+  { label: "Cumpleañeros", value: "Gratis con CURP o acta" },
+  { label: "Acompañantes", value: "Sin costo en área de mesas" },
+  { label: "Tiempo de salto", value: "Ilimitado, no por hora" },
 ] as const;
 
 export const jobs = {
@@ -222,7 +230,7 @@ export const attractions = [
 
 export const rules = [
   "Las calcetas antiderrapantes son obligatorias en las zonas de salto. Si no traes, se venden en caja ($40).",
-  "Solo pagan quienes suben a brincar. Quien acompaña y se queda fuera de la cancha no paga entrada.",
+  "Solo pagan quienes suben a brincar. Acompañantes no pagan y pueden estar en el área de mesas.",
   "El tiempo de salto es ilimitado dentro del horario de operación.",
   "Es para todas las edades. Los menores deben entrar con un adulto responsable.",
   "Usa ropa cómoda. Nada de zapatos, hebillas, joyería suelta ni objetos en los bolsillos sobre los trampolines.",
@@ -243,11 +251,15 @@ export const faqs = [
   },
   {
     q: "¿Los papás pagan si no brincan?",
-    a: "No. Solo pagan las personas que suben a la zona de salto.",
+    a: "No. Acompañantes no pagan y pueden estar en el área de mesas. Solo pagan quienes suben a brincar.",
   },
   {
     q: "¿Incluye calcetas?",
-    a: "No. Las calcetas antiderrapantes cuestan $40 y son obligatorias para saltar.",
+    a: "No. Las calcetas antiderrapantes cuestan $40 y son obligatorias para saltar. No vienen en la entrada general.",
+  },
+  {
+    q: "¿Los cumpleañeros entran gratis?",
+    a: "Sí, el día de tu cumpleaños. Presenta CURP o acta de nacimiento.",
   },
   {
     q: "¿A partir de qué edad pueden entrar?",

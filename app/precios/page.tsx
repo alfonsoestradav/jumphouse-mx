@@ -6,7 +6,7 @@ import { extras, prices, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Precios",
   description:
-    "Promos de Jump House en Plaza Santa Catarina: Súper lunes $130, martes a jueves $180 antes de las 3:30 p.m. y Jump Pack de fin de semana $250. Tiempo ilimitado. Calcetas $40.",
+    "Entrada general $250 en Jump House, Plaza Santa Catarina. Lunes de Locura $130, Happy Hour $180 martes a jueves antes de las 3:30 p.m., Jump Pack de fin de semana $250. Calcetas $40. Cumpleañeros gratis con CURP o acta.",
 };
 
 export default function PreciosPage() {
@@ -14,7 +14,7 @@ export default function PreciosPage() {
     <>
       <PageHero
         title="Precios"
-        lede="Tiempo ilimitado, solo paga quien salta y el cumpleañero entra gratis. Todos los días de 1:00 p.m. a 9:00 p.m. en Plaza Santa Catarina."
+        lede="Entrada general $250. No cobramos por hora. Acompañantes sin costo en el área de mesas. Cumpleañeros gratis con CURP o acta. Todos los días de 1:00 p.m. a 9:00 p.m."
         image="/images/jump.jpg"
         alt="Salto en trampolín en Jump House"
       />
@@ -24,11 +24,11 @@ export default function PreciosPage() {
           Promos de la semana
         </h2>
         <p className="mt-4 max-w-xl text-muted">
-          Tres tarifas publicadas para saltar en {site.address.place},{" "}
-          {site.address.street}. La entrada no incluye calcetas.
+          Entrada general y promociones para saltar en {site.address.place},{" "}
+          {site.address.street}. No incluye calcetas ($40).
         </p>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {prices.map((p) => {
             const featured = p.highlight;
             return (
