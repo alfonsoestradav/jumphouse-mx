@@ -252,6 +252,19 @@ export const faqs = [
 ] as const;
 
 export const gallery = [
+  { src: "/images/maps-06.jpg", alt: "Fachada de Jump House en Plaza Santa Catarina" },
+  { src: "/images/maps-11.jpg", alt: "Canchas de Jump House con pozo de cubos" },
+  { src: "/images/maps-01.jpg", alt: "Pozo de cubos y trampolines de Jump House" },
+  { src: "/images/maps-13.jpg", alt: "Vista panorámica de las canchas de Jump House" },
+  { src: "/images/maps-12.jpg", alt: "Pistas de trampolín en Jump House" },
+  { src: "/images/maps-02.jpg", alt: "Zona de mesas junto a las canchas de Jump House" },
+  { src: "/images/maps-08.jpg", alt: "Grupo saltando en las canchas de Jump House" },
+  { src: "/images/maps-07.jpg", alt: "Área de fiestas en Jump House" },
+  { src: "/images/maps-09.jpg", alt: "Aros de básquet en los trampolines" },
+  { src: "/images/maps-05.jpg", alt: "Calcetas antiderrapantes Jump House" },
+  { src: "/images/maps-04.jpg", alt: "Muro de escalar en Jump House" },
+  { src: "/images/maps-03.jpg", alt: "Playground infantil en Jump House Santa Catarina" },
+  { src: "/images/maps-10.jpg", alt: "Promociones de Jump House" },
   { src: "/images/park.jpg", alt: "Canchas de Jump House con el letrero del parque" },
   { src: "/images/jump.jpg", alt: "Salto en trampolín en Jump House" },
   { src: "/images/leap.jpg", alt: "Niña saltando en Jump House" },

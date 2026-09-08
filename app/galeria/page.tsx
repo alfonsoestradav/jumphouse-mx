@@ -8,7 +8,7 @@ import { gallery } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Galería",
   description:
-    "Fotos de Jump House en Plaza Santa Catarina, publicadas en Facebook.",
+    "Fotos de Jump House en Plaza Santa Catarina, del propietario en Google Maps y de Facebook.",
 };
 
 const mosaic = [
@@ -38,21 +38,25 @@ export default function GaleriaPage() {
           {gallery.map((shot, i) => (
             <figure
               key={shot.src}
-              className={`relative overflow-hidden rounded-[1.4rem] ${mosaic[i]}`}
+              className={`relative overflow-hidden rounded-[1.4rem] ${mosaic[i % mosaic.length]}`}
             >
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
-                className="object-cover object-top"
+                className={
+                  shot.src.includes("/maps-")
+                    ? "object-cover object-center"
+                    : "object-cover object-top"
+                }
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
             </figure>
           ))}
         </div>
         <p className="mt-6 max-w-xl text-sm text-muted">
-          Fotos de Jump House en Plaza Santa Catarina, publicadas en su página de
-          Facebook.
+          Primero las fotos del propietario en Google Maps; más abajo, las de su
+          página de Facebook. Plaza Santa Catarina, Santa Catarina, N.L.
         </p>
       </section>
 
