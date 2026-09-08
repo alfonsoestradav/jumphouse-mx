@@ -8,7 +8,7 @@ import { attractions, waLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Atracciones",
   description:
-    "Zona de salto, tobogán, pozo de cubos, pelotas y área de fiestas en Jump House, Plaza Santa Catarina. Tiempo ilimitado para todas las edades.",
+    "Zona de salto, pozo de cubos, gladiadores, básquet y fiestas en Jump House, Plaza Santa Catarina.",
 };
 
 export default function AtraccionesPage() {
@@ -16,9 +16,9 @@ export default function AtraccionesPage() {
     <>
       <PageHero
         title="Atracciones"
-        lede="Trampolines, tobogán, cubos y pelotas. El parque entero está hecho para brincar sin reloj."
-        image="/images/hero.jpg"
-        alt="Canchas de trampolines, tobogán y pozo de cubos en Jump House"
+        lede="Trampolines, cubos, gladiadores y básquet. El parque entero está hecho para brincar sin reloj."
+        image="/images/park.jpg"
+        alt="Canchas de Jump House en Plaza Santa Catarina"
       />
 
       <section className="mx-auto max-w-7xl space-y-20 px-5 py-16 lg:space-y-28 lg:px-8 lg:py-24">

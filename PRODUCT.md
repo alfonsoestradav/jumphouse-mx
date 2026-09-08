@@ -32,8 +32,8 @@ The business currently lives on Google Maps, Facebook (`JumpHouseMx`) and Instag
 - Content is taken from Maps, Facebook and Instagram. Prices and promos are as published on those channels and may change; the site says so.
 - No online ticketing, waiver kiosk or multi-location selector.
 - Primary conversion is WhatsApp.
-- Do not invent attractions, reviews, or package contents that were not published. Attractions shown are those visible or named in their social photos and posts (trampolines, slide, foam/ball play, parties, snacks).
-- Photography on the site is original generated imagery in the park’s neon indoor look, because Instagram CDN blocked direct downloads of their posts.
+- Do not invent attractions, reviews, or package contents that were not published. Attractions shown are those visible in their Facebook photos (trampolines, foam cubes, gladiator logs, basketball, climbing wall, parties).
+- Photography on the site is from Jump House’s own Facebook/Instagram posts of the Santa Catarina park.
 
 ## Brand Commitments
 

@@ -16,8 +16,8 @@ export default function ReglasPage() {
       <PageHero
         title="Reglas"
         lede="Para que todos salten rico: calcetas, respeto al staff y tiempo ilimitado dentro del horario."
-        image="/images/lobby.jpg"
-        alt="Recepción de Jump House con calcetas y luces de neón"
+        image="/images/park.jpg"
+        alt="Canchas de Jump House en Plaza Santa Catarina"
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

@@ -29,8 +29,8 @@ export default function ContactoPage() {
       <PageHero
         title="Contacto"
         lede="Estamos en Plaza Santa Catarina. Escríbenos por WhatsApp o ven directo de 1:00 p.m. a 9:00 p.m."
-        image="/images/lobby.jpg"
-        alt="Recepción de Jump House en Plaza Santa Catarina"
+        image="/images/park.jpg"
+        alt="Canchas de Jump House en Plaza Santa Catarina"
       />
 
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-24">

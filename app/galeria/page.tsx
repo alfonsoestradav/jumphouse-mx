@@ -8,7 +8,7 @@ import { gallery, waLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Galería",
   description:
-    "Fotos del parque de trampolines Jump House en Plaza Santa Catarina: canchas, tobogán, cubos, fiestas y la energía de la cancha.",
+    "Fotos de Jump House en Plaza Santa Catarina, publicadas en Facebook.",
 };
 
 const mosaic = [
@@ -20,6 +20,7 @@ const mosaic = [
   "col-span-1 min-h-[220px] md:col-span-2 md:row-span-2 md:min-h-[540px]",
   "col-span-1 min-h-[220px] md:col-span-4 md:min-h-[250px]",
   "col-span-2 min-h-[200px] md:col-span-4 md:min-h-[250px]",
+  "col-span-2 min-h-[200px] md:col-span-6 md:min-h-[280px]",
 ];
 
 export default function GaleriaPage() {
@@ -28,8 +29,8 @@ export default function GaleriaPage() {
       <PageHero
         title="Galería"
         lede="Luces, color y el ruido bueno de una cancha llena. Así se ve Jump House cuando se enciende."
-        image="/images/mezzanine.jpg"
-        alt="Vista desde la zona de espectadores"
+        image="/images/leap.jpg"
+        alt="Salto en Jump House, Plaza Santa Catarina"
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
@@ -50,8 +51,8 @@ export default function GaleriaPage() {
           ))}
         </div>
         <p className="mt-6 max-w-xl text-sm text-muted">
-          Fotografías de ambiente del parque, generadas en el lenguaje visual
-          del lugar.
+          Fotos de Jump House en Plaza Santa Catarina, publicadas en su página de
+          Facebook.
         </p>
       </section>
 

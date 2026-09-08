@@ -16,7 +16,7 @@ export default function FiestasPage() {
         title="Fiestas"
         lede="El cumpleañero entra gratis. Armamos la fecha por WhatsApp en Plaza Santa Catarina, Manuel Ordóñez 322."
         image="/images/party.jpg"
-        alt="Zona de fiesta junto a las canchas de trampolines"
+        alt="Fiesta en las canchas de Jump House"
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

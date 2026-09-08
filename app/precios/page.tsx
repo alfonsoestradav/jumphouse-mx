@@ -15,8 +15,8 @@ export default function PreciosPage() {
       <PageHero
         title="Precios"
         lede="Tiempo ilimitado, solo paga quien salta y el cumpleañero entra gratis. Todos los días de 1:00 p.m. a 9:00 p.m. en Plaza Santa Catarina."
-        image="/images/court.jpg"
-        alt="Cancha de trampolines con iluminación neón rosa y azul"
+        image="/images/jump.jpg"
+        alt="Salto en trampolín en Jump House"
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

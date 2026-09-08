@@ -8,8 +8,8 @@ export default function HomePage() {
     <>
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <Image
-          src="/images/hero.jpg"
-          alt="Canchas de trampolines, tobogán y pozo de cubos en Jump House"
+          src="/images/park.jpg"
+          alt="Canchas de Jump House en Plaza Santa Catarina"
           fill
           priority
           className="object-cover"
@@ -97,8 +97,8 @@ export default function HomePage() {
         </div>
         <div className="relative min-h-[340px] overflow-hidden rounded-[2rem]">
           <Image
-            src="/images/lobby.jpg"
-            alt="Recepción de Jump House con luces de neón y calcetas"
+            src="/images/pack.jpg"
+            alt="Visitantes de Jump House en las canchas de Plaza Santa Catarina"
             fill
             className="object-cover"
             sizes="(min-width: 1024px) 40vw, 100vw"
@@ -184,7 +184,7 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden">
         <Image
           src="/images/party.jpg"
-          alt="Área de fiestas junto a los trampolines"
+          alt="Fiesta en las canchas de Jump House"
           fill
           className="object-cover"
           sizes="100vw"

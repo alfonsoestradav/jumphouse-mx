@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     description: site.description,
     locale: site.locale,
     type: "website",
-    images: [{ url: "/images/hero.jpg", width: 1200, height: 675 }],
+    images: [{ url: "/images/park.jpg", width: 640, height: 800 }],
   },
   twitter: {
     card: "summary_large_image",
     title: site.fullName,
     description: site.description,
-    images: ["/images/hero.jpg"],
+    images: ["/images/park.jpg"],
   },
   alternates: { canonical: "/" },
 };
