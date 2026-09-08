@@ -102,7 +102,7 @@ export function PartyForm() {
 
   const jumpTotal = guests * partyRate;
   const serviceTotal = partyServices.reduce((sum, item) => {
-    if (item.kind !== "qty") return sum;
+    if (item.kind === "flag") return sum + (privado ? item.price : 0);
     return sum + (qty[item.id] || 0) * item.price;
   }, 0);
   const total = jumpTotal + serviceTotal;
@@ -110,7 +110,7 @@ export function PartyForm() {
 
   const serviceLines = partyServices.flatMap((item) => {
     if (item.kind === "flag") {
-      return privado ? [`${item.name}: consultar condiciones`] : [];
+      return privado ? [`${item.name} (${money(item.price)})`] : [];
     }
     const n = qty[item.id] || 0;
     if (n <= 0) return [];
@@ -219,7 +219,7 @@ export function PartyForm() {
                   />
                   <span className="font-semibold">{item.name}</span>
                 </span>
-                <span className="text-sm text-lime">Consultar</span>
+                <span className="text-lime">${item.price.toLocaleString("es-MX")}</span>
               </label>
             </li>
           ) : (

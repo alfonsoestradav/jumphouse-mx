@@ -159,8 +159,8 @@ export const partyExtraGuestFee = 20;
 export const partyServices = [
   { id: "quequitos", name: "Quequitos", price: 30, unit: "c/u", kind: "qty" },
   { id: "pizza", name: "Pizza extra", price: 200, unit: "grande", kind: "qty" },
-  { id: "privado", name: "Evento privado", price: 0, unit: null, kind: "flag" },
   { id: "varitas", name: "Varitas neón", price: 60, unit: "c/u", kind: "qty" },
+  { id: "privado", name: "Evento privado", price: 2000, unit: null, kind: "flag" },
 ] as const;
 
 export const partyTerms = {
